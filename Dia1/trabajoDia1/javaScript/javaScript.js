@@ -82,10 +82,10 @@ while(boleanito==true){
         \n5. Salir\
     '))
     if (opcion==1){    // 1. Registrar Nuevos Gastos  
-        prompt(`=============================================
-        Registrar Nuevo Gasto
-        =============================================
-        nIngrese la información del gasto:`)
+        alert(`=========================================
+            Registrar Nuevo Gasto
+            ==========================================
+        Ingrese la información del gasto:`)
         let registrar_dia=(fecha_actual.getDate());
         let registrar_mes=(fecha_actual.getMonth()+1);
         let registrar_año=(fecha_actual.getFullYear());
@@ -101,15 +101,14 @@ while(boleanito==true){
             "Descripcion":descripcionGasto
         }
 
-        let guardarGasto=prompt("Ingrese 'S' para guardar o 'C' para cancelar.");
-        if (guardarGasto==="S"){
-            listaDeGastos.push(nuevoGasto);
+        let guardarGasto=prompt("Ingrese 's' para guardar o 'c' para cancelar.");
+        if (guardarGasto==="s"){
+            listaDeGastos.push(nuevoGasto)
             nuevoGasto={}
             fechaFormateada=[]
         }
-        else if(guardarGasto==="C"){
+        else if(guardarGasto==="c"){
             alert("se ha cancelado el registro")
-            alert(JSON.stringify(listaDeGastos));
         }
         else{
             alert("opcion no valida, vuelva a intentar")
@@ -117,22 +116,22 @@ while(boleanito==true){
               
     }
     else if (opcion==2){// 2. Listar gastos    
-        let opcionListarGastos=parseInt(prompt('=============================================\
+        let opcionListarGastos=parseInt(prompt('==========================================\
             \n               Listar Gastos                 \
-            \n=============================================\
+            \n==========================================\
             \nSeleccione una opción para filtrar los gastos:\
             \n\
             \n1. Ver todos los gastos\
             \n2. Filtrar por categoría\
             \n3. Filtrar por rango de fechas\
             \n4. Regresar al menú principal\
-            \n=============================================\
+            \n==========================================\
             '));
         if (opcionListarGastos==1){
             alert(JSON.stringify(listaDeGastos));
         }
         
-        else if (opcionListarGastos===2){
+        else if (opcionListarGastos==2){
             elegirCat=prompt('que categira quieres ver?\
                 \ncomida\
                 \ntransporte\
@@ -152,15 +151,15 @@ while(boleanito==true){
         }
     }
     else if (opcion==3){ // 3. Calcular total de gastos
-        let opcionCalcularGastos=parseInt(prompt('=============================================\
+        let opcionCalcularGastos=parseInt(prompt('==========================================\
             \n          Calcular Total de Gastos\
-            \n=============================================\
+            \n==========================================\
             \nSeleccione el periodo de cálculo:\
             \n1. Calcular total diario\
             \n2. Calcular total semanal\
             \n3. Calcular total mensual\
             \n4. Regresar al menú principal\
-            \n=============================================\
+            \n==========================================\
             '));
         if (opcionCalcularGastos==1){
             
@@ -176,15 +175,15 @@ while(boleanito==true){
         }
     }
     else if (opcion==4){ // 4. Generar reporte de gastos
-        let opcionReporteGastos=parseInt(prompt('=============================================\
+        let opcionReporteGastos=parseInt(prompt('==========================================\
             \n           Generar Reporte de Gastos\
-            \n=============================================\
+            \n==========================================\
             \nSeleccione el tipo de reporte:\
             \n\\nReporte diario\
             \nReporte semanal\
             \nReporte mensual\
             \nRegresar al menú principal\
-            \n=============================================\
+            \n==========================================\
             '));
         if (opcionReporteGastos==1){
               // falta terminar
@@ -201,12 +200,12 @@ while(boleanito==true){
     }
     else if (opcion==5){ // 5. Salir
             
-        let salirONo=prompt("¿Desea salir del programa? (S/N): ");
-        if (salirONo==="S"){
+        let salirONo=prompt("¿Desea salir del programa? (s/n): ");
+        if (salirONo==="s"){
             boleanito= false
             ("hasta la proxima");
         }
-        else if (salirONo==="N"){
+        else if (salirONo==="n"){
             (" ");
         }
         else{
