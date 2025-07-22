@@ -2,34 +2,30 @@
 // ########### tarea #############
 // ###############################
 
-//from funciones import *
-//from tabulate import tabulate
 let fecha_actual = new Date();
+let listaDeGastos={}
 
 let boleanito= true
 while(boleanito==true){
-
-    let listaDeGastos = abrirJSON()
-    listaDeGastos=hallarFecha()
     
     // Menú Principal del Simulador de Gasto Diario
-    let opcion=parseInt(prompt('===========================================================\
-    \n                              Simulador de gastos\
-    \n==========================================================\
-    \nSeleccione una opcion:\
-    \n\
-    \n1. Registrar gasto\
-    \n2. Ver los gastos\
-    \n3. Calcular los gastos\
-    \n4. Generar reporte de gastos\
-    \n5. Sali\
+    let opcion=parseInt(prompt('=====================================\
+        \n                Simulador de gastos\
+        \n=====================================\
+        \nSeleccione una opcion:\
+        \n\
+        \n1. Registrar gasto\
+        \n2. Ver los gastos\
+        \n3. Calcular los gastos\
+        \n4. Generar reporte de gastos\
+        \n5. Salir\
     '))
     if (opcion==1){    // 1. Registrar Nuevos Gastos  
-        let opc=parseInt(prompt('=============================================\
-        \n       Registrar Nuevo Gasto\
-        \n=============================================\
-        \nIngrese la información del gasto:\
-    '))
+        prompt('=============================================\
+            \n                  Registrar Nuevo Gasto\
+            \n=============================================\
+            \nIngrese la información del gasto:\
+            ')
        
         let registrar_hora=(fecha_actual.getHours() % 12 || 12);
         let registrar_dia=(fecha_actual.getDate());
@@ -46,44 +42,35 @@ while(boleanito==true){
             "categoria":categoriaGasto,
             "Descripcion":descripcionGasto
         }
-        
-        (" ");
+
         let guardarGasto=prompt("Ingrese 'S' para guardar o 'C' para cancelar.");
-        if (guardarGasto=="S"){
+        if (guardarGasto==="S"){
             listaDeGastos.push(nuevoGasto);
-            guardarJSON(listaDeGastos);
             nuevoGasto={}
             fechaFormateada=[]
-            ("");
-            ("");
         }
-        else if(guardarGasto=="C"){
-            ("=============================================");
-            ("");
-            ("");
+        else if(guardarGasto==="C"){
+            console.log("se ha cancelado el registro")
         }
         else{
-            ("opcion no valida, vuelva a Intentar");
+            console.log("opcion no valida, vuelva a intentar")
         }
               
     }
-    else if (opcion==2){// 2. Listar gastos
-        ("");
-        ("");
-        ("=============================================");
-        ("               Listar Gastos                 ");
-        ("=============================================");
-        ("Seleccione una opción para filtrar los gastos:");
-        (" ");
-        ("1. Ver todos los gastos");
-        ("2. Filtrar por categoría");
-        ("3. Filtrar por rango de fechas");
-        ("4. Regresar al menú principal");
-        ("=============================================");
-        let opcionListarGastos=parseInt(prompt("que desea hacer?"));
-        
+    else if (opcion==2){// 2. Listar gastos    
+        let opcionListarGastos=parseInt(prompt('=============================================\
+            \n               Listar Gastos                 \
+            \n=============================================\
+            \nSeleccione una opción para filtrar los gastos:\
+            \n\
+            \n1. Ver todos los gastos\
+            \n2. Filtrar por categoría\
+            \n3. Filtrar por rango de fechas\
+            \n4. Regresar al menú principal\
+            \n=============================================\
+            '));
         if (opcionListarGastos==1){
-           (listaDeGastos);
+           console.log(listaDeGastos);
         }
         else if (opcionListarGastos==2){
             let gastoCatComida=[]
@@ -104,41 +91,41 @@ while(boleanito==true){
                         gastoCatOtros.push(listaDeGastos[i])
                 }
             }
-            ("comida:");        
-            (gastoCatComida);
-            ("");
-            ("transporte:");
-            (gastoCatTransporte);
-            ("");
-            ("entretenimiento:");
-            (gastoCatEntretenimiento);
-            ("");
-            ("otros:");
-            (gastoCatOtros);
+            elegirCat=prompt('que categira quieres ver?\
+                \n1. comida\
+                \n2. transporte\
+                \n3. entretenimiento\
+                \n4. otros\
+            ');
+            if(elegirCat===1){
+                console.log(gastoCatComida)
+            }else if(elegirCat===2){
+                console.log(gastoCatTransporte)
+            }else if(elegirCat===3){
+                console.log(gastoCatEntretenimiento)
+            }else if(elegirCat===4){
+                console.log(gastoCatOtros)
+            }
         } 
         else if (opcionListarGastos==3){
-            let listasPorFechas=[]
-            listasPorFechas
-            (listasPorFechas)
+            let listasPorFechas= []
+            listasPorFechas.push(listaDeGastos)
         }       
         else if (opcionListarGastos==4){
             ("")
         }
     }
     else if (opcion==3){ // 3. Calcular total de gastos
-        ("");
-        ("");
-        ("=============================================");
-        ("        Calcular Total de Gastos             ");     
-        ("=============================================");
-        ("Seleccione el periodo de cálculo: ");
-        (" ");
-        ("1. Calcular total diario");
-        ("2. Calcular total semanal");
-        ("3. Calcular total mensual");
-        ("4. Regresar al menú principal");
-        ("=============================================");
-        let opcionCalcularGastos=parseInt(prompt("que desea hacer?"));
+        let opcionCalcularGastos=parseInt(prompt('=============================================\
+            \n          Calcular Total de Gastos\
+            \n=============================================\
+            \nSeleccione el periodo de cálculo:\
+            \n1. Calcular total diario\
+            \n2. Calcular total semanal\
+            \n3. Calcular total mensual\
+            \n4. Regresar al menú principal\
+            \n=============================================\
+            '));
         if (opcionCalcularGastos==1){
             
         }
@@ -153,19 +140,16 @@ while(boleanito==true){
         }
     }
     else if (opcion==4){ // 4. Generar reporte de gastos
-        ("");
-        ("");
-        ("=============================================");
-        ("       Generar Reporte de Gastos             ");
-        ("=============================================");
-        ("Seleccione el tipo de reporte: ");
-        (" ");
-        ("1. Reporte diario");
-        ("2. Reporte semanal");
-        ("3. Reporte mensual");
-        ("4. Regresar al menú principal");
-        ("=============================================");
-        let opcionReporteGastos=parseInt(prompt("que desea hacer?"));
+        let opcionReporteGastos=parseInt(prompt('=============================================\
+            \n           Generar Reporte de Gastos\
+            \n=============================================\
+            \nSeleccione el tipo de reporte:\
+            \n\\nReporte diario\
+            \nReporte semanal\
+            \nReporte mensual\
+            \nRegresar al menú principal\
+            \n=============================================\
+            '));
         if (opcionReporteGastos==1){
               // falta terminar
         }
@@ -182,11 +166,11 @@ while(boleanito==true){
     else if (opcion==5){ // 5. Salir
             
         let salirONo=prompt("¿Desea salir del programa? (S/N): ");
-        if (salirONo=="S"){
+        if (salirONo==="S"){
             boleanito= false
             ("hasta la proxima");
         }
-        else if (salirONo=="N"){
+        else if (salirONo==="N"){
             (" ");
         }
         else{
