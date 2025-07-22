@@ -3,7 +3,68 @@
 // ###############################
 
 let fecha_actual = new Date();
-let listaDeGastos={}
+let listaDeGastos=[
+    {
+        "fecha": "2025-07-21",
+        "monto del gasto": 35.50,
+        "categoria": "comida",
+        "Descripcion": "Almuerzo en restaurante"
+    },
+    {
+        "fecha": "2025-07-20",
+        "monto del gasto": 12.00,
+        "categoria": "transporte",
+        "Descripcion": "Taxi al trabajo"
+    },
+      {
+        "fecha": "2025-07-19",
+        "monto del gasto": 89.99,
+        "categoria": "entretenimiento",
+        "Descripcion": "Entrada al cine y snacks"
+      },
+      {
+        "fecha": "2025-07-18",
+        "monto del gasto": 22.30,
+        "categoria": "comida",
+        "Descripcion": "Compra de frutas y verduras"
+      },
+      {
+        "fecha": "2025-07-17",
+        "monto del gasto": 8.00,
+        "categoria": "comida",
+        "Descripcion": "Desayuno en cafetería"
+      },
+      {
+        "fecha": "2025-07-16",
+        "monto del gasto": 150.00,
+        "categoria": "otros",
+        "Descripcion": "Consulta médica"
+      },
+      {
+        "fecha": "2025-07-15",
+        "monto del gasto": 59.99,
+        "categoria": "entretenimiento",
+        "Descripcion": "Suscripción a servicio de streaming"
+      },
+      {
+        "fecha": "2025-07-14",
+        "monto del gasto": 25.00,
+        "categoria": "otros",
+        "Descripcion": "Regalo de cumpleaños"
+      },
+      {
+        "fecha": "2025-07-13",
+        "monto del gasto": 110.75,
+        "categoria": "otros",
+        "Descripcion": "Compra de zapatos"
+      },
+      {
+        "fecha": "2025-07-12",
+        "monto del gasto": 5.50,
+        "categoria": "transporte",
+        "Descripcion": "Boleto de metro"
+      }
+]
 
 let boleanito= true
 while(boleanito==true){
@@ -21,18 +82,15 @@ while(boleanito==true){
         \n5. Salir\
     '))
     if (opcion==1){    // 1. Registrar Nuevos Gastos  
-        prompt('=============================================\
-            \n                  Registrar Nuevo Gasto\
-            \n=============================================\
-            \nIngrese la información del gasto:\
-            ')
-       
-        let registrar_hora=(fecha_actual.getHours() % 12 || 12);
+        prompt(`=============================================
+        Registrar Nuevo Gasto
+        =============================================
+        nIngrese la información del gasto:`)
         let registrar_dia=(fecha_actual.getDate());
         let registrar_mes=(fecha_actual.getMonth()+1);
         let registrar_año=(fecha_actual.getFullYear());
         let fechaFormateada=[];
-        fechaFormateada.push(registrar_hora,registrar_dia,registrar_mes,registrar_año)
+        fechaFormateada.push(registrar_año,registrar_mes,registrar_dia)
         let montoGasto=parseInt(prompt("- Monto del gasto: "));
         let categoriaGasto=prompt("- Categoría (ej. comida, transporte, entretenimiento, otros):");
         let descripcionGasto=prompt("- Descripción (opcional):");
@@ -50,10 +108,11 @@ while(boleanito==true){
             fechaFormateada=[]
         }
         else if(guardarGasto==="C"){
-            console.log("se ha cancelado el registro")
+            alert("se ha cancelado el registro")
+            alert(JSON.stringify(listaDeGastos));
         }
         else{
-            console.log("opcion no valida, vuelva a intentar")
+            alert("opcion no valida, vuelva a intentar")
         }
               
     }
@@ -70,49 +129,26 @@ while(boleanito==true){
             \n=============================================\
             '));
         if (opcionListarGastos==1){
-           console.log(listaDeGastos);
+            alert(JSON.stringify(listaDeGastos));
         }
-        else if (opcionListarGastos==2){
-            let gastoCatComida=[]
-            let gastoCatTransporte=[]
-            let gastoCatEntretenimiento=[]
-            let gastoCatOtros=[]
-            for (let i=0; i < listaDeGastos.length; i=i+1){
-                if (listaDeGastos[i]["categoria"]=="comida"){
-                        gastoCatComida.push(listaDeGastos[i])
-                }
-                else if (listaDeGastos[i]["categoria"]=="transporte"){
-                        gastoCatTransporte.push(listaDeGastos[i])
-                }
-                else if (listaDeGastos[i]["categoria"]=="entretenimiento"){
-                        gastoCatEntretenimiento.push(listaDeGastos[i])
-                }
-                else if (listaDeGastos[i]["categoria"]=="otros"){
-                        gastoCatOtros.push(listaDeGastos[i])
-                }
-            }
+        
+        else if (opcionListarGastos===2){
             elegirCat=prompt('que categira quieres ver?\
-                \n1. comida\
-                \n2. transporte\
-                \n3. entretenimiento\
-                \n4. otros\
+                \ncomida\
+                \ntransporte\
+                \nentretenimiento\
+                \notros\
             ');
-            if(elegirCat===1){
-                console.log(gastoCatComida)
-            }else if(elegirCat===2){
-                console.log(gastoCatTransporte)
-            }else if(elegirCat===3){
-                console.log(gastoCatEntretenimiento)
-            }else if(elegirCat===4){
-                console.log(gastoCatOtros)
-            }
+            let filtroCat= listaDeGastos.filter((listaDeGastos) => listaDeGastos.categoria == elegirCat)
+            alert(JSON.stringify(filtroCat))
         } 
         else if (opcionListarGastos==3){
-            let listasPorFechas= []
-            listasPorFechas.push(listaDeGastos)
+            quefecha = prompt('Dime la fecha que quieres buscar : Año-Mes-Dia')
+            let filtrofecha= listaDeGastos.filter((listaDeGastos) => listaDeGastos.fecha === quefecha)
+            alert(JSON.stringify(filtrofecha));
         }       
         else if (opcionListarGastos==4){
-            ("")
+            console.log("")
         }
     }
     else if (opcion==3){ // 3. Calcular total de gastos
