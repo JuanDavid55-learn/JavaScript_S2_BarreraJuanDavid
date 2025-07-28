@@ -121,7 +121,7 @@ while(boleanito==true){
             nuevoIngrediente={}         
             alert("Ingrediente registrado exitosamente!"); 
         }
-        else if (opcMenuIngr==2){       
+        else if (opcMenuIngr==2){
             alert(JSON.stringify(jsonIngradientes)); 
         } 
         else if (opcMenuIngr==3){    
