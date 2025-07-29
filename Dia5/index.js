@@ -1,4 +1,4 @@
-let xhr = new XMLHttpRequest();
+const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://rickandmortyapi.com/api/character', true);
 function onRequestHandler(){
     if  (this.status == 200){
