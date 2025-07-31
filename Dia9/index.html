@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <div class="pokedex">
-        <div id="resultado" class="resultado">
-            <img src="" alt="">
-            <h2>metaphod</h2>
+    <main>
+        <img src="#" alt="pokemon" class="pokemon__image">
+        <h1 class="pokemon_data">
+            <span class="pokemon_number"></span> - 
+            <span class="pokemon_name"></span>
+        </h1>
+
+        <form class="form">
+            <input type="search" class="input_search" placeholder="Name or Number"/>
+        </form>
+
+        <div class="buttons">
+            <button class="button btn-prev">Prev &lt</button>
+            <button class="button btn-next">Next &gt</button>
         </div>
-        <input type="text" id="nombreInput" placeholder="Name or Number" />
-        <div>
-            <button onclick="veratras()">Prev<</button>
-            <button onclick="versiginente()">Next></button>
-        </div>
-    </div>
+        <img src="./img/pokedex (1).png" alt="" class="pokedex">
+    </main>
 </body>
 <script src="./javascript.js"></script>
 </html>
