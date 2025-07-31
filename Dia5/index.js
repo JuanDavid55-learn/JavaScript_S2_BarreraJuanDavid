@@ -1,37 +1,39 @@
-const xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://rickandmortyapi.com/api/character', true);
-function onRequestHandler(){
-    if  (this.status == 200){
-        const data = JSON.parse(this.response);
-        console.log(data);
-    }
-}
-xhr.addEventListener("load", onRequestHandler);
-xhr.send();
+function buscarPersonaje() {
+    document.getElementById("resultados").innerHTML=``;
+    const nombreUsar = document.getElementById("nombreInput").value.trim();
+    console.log(nombreUsar);
+    const xhr = new XMLHttpRequest();
+    const url = `https://rickandmortyapi.com/api/character?name=${nombreUsar}`;//Acento Inverso son las comillas ``
+    console.log(url);
+    xhr.open("GET", url, true);
 
-// solo es una prueba
-/* 
-opc=prompt(`
-    =======================================
-    MENU PRINCIPAL
-    =======================================
-    1. ver lista de personajes
-    2. ver personaje (llamar por nombre)
-    =======================================
-    que desea hacer? (1-2)`);
-    if(opc==1){
-        alert(JSON.stringify(data));
-    }
-    else if (opc==2){
-        let personaje = prompt(`cual es el nombre del personaje?`);    
-        let ver = data.find(personajito => personajito.name === personaje);     
-        if (verCat) {     
-            alert(JSON.stringify(ver));    
-        } 
-        else {      
-            alert("personaje no encontrado, asegurese de que este correcto.");      
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 3) {
+
+            console.log("Cargando...");
         }
-    }
-    else{
-        alert("no valido");
-    }*/
+        else if (xhr.readyState === 4 && xhr.status === 200) {
+            try {
+                const daticos = JSON.parse(xhr.responseText);
+                if (daticos.results && daticos.results.length > 0) {
+                    for (let i = 0; i < daticos.results.length; i++) {
+                        let division = document.getElementById("resultados");
+                        division.innerHTML += `
+                        <div class="card">
+                        <img src="${daticos["results"][i]["image"]}" alt="">
+                        <h3>${daticos["results"][i]["name"]}</h3>
+                        <p><strong>Status:</strong>${daticos["results"][i]["status"]}</p>
+                        <p><strong>Specie:</strong>${daticos["results"][i]["species"]}</p>
+                        </div>
+                        `
+                        console.log(daticos["results"][i]["name"]);
+                    }
+                };
+            }
+            catch (err) {
+                console.log(err.message); //Si algo malo pasa, imprima el error
+            }
+        }
+    };
+    xhr.send();
+};
