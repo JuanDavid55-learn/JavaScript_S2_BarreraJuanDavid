@@ -35,19 +35,31 @@ button:hover{
     background-color: aqua;
 }
 .resultado{
-    margin-top: 30px;
+    margin-top: 2rem;
+    display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
 .card{
-    background-color: #fff;
-    padding: 2rem;
-    border: 1px solid #ddd;
+    background-color: #070606;
+    border: 0.2rem solid #30266b;
     border-radius: 8px;
-    width: 200px;
+    padding: 2rem;
+    width: 100%;
 }
 .card img{
     width: 100%;
     border-radius: 5px;
+}
+p{
+    color: #fff;
+    margin-top: 0.5rem;
+}
+h1{
+    color: #30266b;
+    margin: 2rem;
+}
+#titulo{
+    color: #fff;
 }

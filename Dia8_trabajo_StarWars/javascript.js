@@ -19,21 +19,21 @@ function buscarPersonaje() {
                     let division = document.getElementById("resultados");
                     division.innerHTML += `
                     <div class="card">
-                    <h3>${daticos["results"][peopleID-1]["name"]}</h3>
-                    <p><strong>height:</strong>${daticos["results"][peopleID-1]["height"]}</p>
-                    <p><strong>mass:</strong>${daticos["results"][peopleID-1]["mass"]}</p>
-                    <p><strong>hair_color:</strong>${daticos["results"][peopleID-1]["hair_color"]}</p>
-                    <p><strong>skin_color:</strong>${daticos["results"][peopleID-1]["skin_color"]}</p>
-                    <p><strong>eye_color:</strong>${daticos["results"][peopleID-1]["eye_color"]}</p>
-                    <p><strong>birth_year:</strong>${daticos["results"][peopleID-1]["birth_year"]}</p>
-                    <p><strong>gender:</strong>${daticos["results"][peopleID-1]["gender"]}</p>
-                    <p><strong>homeworld:</strong>${daticos["results"][peopleID-1]["homeworld"]}</p>
-                    <p><strong>films:</strong>${daticos["results"][peopleID-1]["films"]}</p>
-                    <p><strong>species:</strong>${daticos["results"][peopleID-1]["species"]}</p>
-                    <p><strong>vehicles:</strong>${daticos["results"][peopleID-1]["vehicles"]}</p>
-                    <p><strong>starships:</strong>${daticos["results"][peopleID-1]["starships"]}</p>
-                    <p><strong>created:</strong>${daticos["results"][peopleID-1]["created"]}</p>
-                    <p><strong>edited:</strong>${daticos["results"][peopleID-1]["edited"]}</p>
+                    <h1>${daticos["results"][peopleID-1]["name"]}</h3>
+                    <p><strong>height: </strong>${daticos["results"][peopleID-1]["height"]}</p>
+                    <p><strong>mass: </strong>${daticos["results"][peopleID-1]["mass"]}</p>
+                    <p><strong>hair_color: </strong>${daticos["results"][peopleID-1]["hair_color"]}</p>
+                    <p><strong>skin_color: </strong>${daticos["results"][peopleID-1]["skin_color"]}</p>
+                    <p><strong>eye_color: </strong>${daticos["results"][peopleID-1]["eye_color"]}</p>
+                    <p><strong>birth_year: </strong>${daticos["results"][peopleID-1]["birth_year"]}</p>
+                    <p><strong>gender: </strong>${daticos["results"][peopleID-1]["gender"]}</p>
+                    <p><strong>homeworld: </strong>${daticos["results"][peopleID-1]["homeworld"]}</p>
+                    <p><strong>films: </strong>${daticos["results"][peopleID-1]["films"]}</p>
+                    <p><strong>species: </strong>${daticos["results"][peopleID-1]["species"]}</p>
+                    <p><strong>vehicles: </strong>${daticos["results"][peopleID-1]["vehicles"]}</p>
+                    <p><strong>starships: </strong>${daticos["results"][peopleID-1]["starships"]}</p>
+                    <p><strong>created: </strong>${daticos["results"][peopleID-1]["created"]}</p>
+                    <p><strong>edited: </strong>${daticos["results"][peopleID-1]["edited"]}</p>
                     </div>
                     `
                     console.log(daticos["results"][peopleID]["name"]);
