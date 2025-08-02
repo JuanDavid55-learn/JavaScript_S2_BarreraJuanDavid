@@ -4,12 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poker: Royal Table</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div id="inicio">
+        <img id="imgPrincipal" src="./img/pasted-image_tracer.png">
         <h1>Poker Royal Table</Table></h1>
         <button id="jugar">Empezar a jugar</button>
-        <button id="verReglas">Ver las reglas del juego</button>
+        <button id="verReglas" onclick="botonReglas()">Ver las reglas del juego</button>
+    </div>
+    <div id="reglas">
+        <h2>REGLAS DE JUEGO</h2>
+        <br>
+        <br>
+        <h3>Como se juega</h3>
+        <br>
+        <h4>Cada jugador debe inicir con 6 cartas y manterner ese limite en su mano, por ronda cada uno robara y movera una carta a la pila HINDR, donde los jugadores tendran que hacer cada movimiento de cartas perpendicularmente, cada cierto numero de rondas se realizaran los EVENTS con fines de sabotaje. el juego culmina en la ronda 40 donde se evaluaran los puntajes obtenidos en un cuarteto de cartas.</h4>
+        <br>
+        <h3>Events</h3>
+        <br>
+        <h4>- Waste looting (cada 3 rondas); ambos jugadores tendran que robar la carta de la pila HINDR del rival.</h4>
+        <br>
+        <h4>- Whim (cada 5 rondas); ambos jugadores revelaran las cartas de su mano.</h4>
+        <br>
+        <h4>- Rough looting: cuando Waste looting y Whim ocurren la misma ronda, robas la carta a ciegas directamente de la mano del rival.</h4>
+        <br>
+        <h3>Condiciones para ganar</h3>
+        <br>
+        <h4>Tener una ROYAL TABLE a final de juego.</h4>
+        <br>
+        <h4>Tener un az a final de juego.</h4>
+        <br>
+        <h4>si la puntuacion del cuarteto de cartas de cada jugador resulta en empate se sumara el puntaje de las cartas residuales de cada uno.</h4>
+        <br>
+        <h4>Cuando tengas el cuarteto de azces en la mano, ganas.</h4>
+        <br>
+        <h4>Si bajo las condiciones establecidas no hay un desempate, nadie gana.</h4>
+        <br>
+        <br>
+        <h3>HINDR</h3>
+        <h4>Es la pila de cartas donde los jugadores desecharan las cartas que no necesiten.</h4>
+        <br>
+        <h3>EVENTS</h3>
+        <h4>Son las acciones que cada jugador tendra que hacer cada cierto numero de turnos.</h4>
+        <br>
+        <h3>ROYAL TABLE</h3>
+        <h4>Es el conjunto conformado por cuatro cartas de la corona.</h4>
+        <br>
+        <br>
+        <h3>PUNTAJES</h3>
+        <h4>- Las cartas comunes valen igual a su numero</h4>
+        <br>
+        <h4>- Las cartas de la corona: principe=10, reina=11, rey=12</h4>
+        <br>
+        <h4>- Los azces valen 41 puntos</h4>
+        <br>
+        <br>
+        <button id="salirReglas">Salir</button>
     </div>
 </body>
 <script src="./script.js"></script>
