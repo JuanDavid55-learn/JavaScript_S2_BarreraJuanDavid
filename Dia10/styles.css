@@ -56,6 +56,79 @@ button{
     right: 0;
     z-index: 1;
 }
-button #verReglas:checked + #reglas{
+#tableroJuego{
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    align-content: space-between;
+    background: linear-gradient(to bottom, green, rgb(5, 156, 5), rgb(5, 205, 5), rgb(10, 242, 10), rgb(10, 242, 10), rgb(5, 205, 5), rgb(5, 156, 5),green);
+    background-size: cover;
+    min-height: 100vh;
+    padding: 4rem;
+    top: 0;
+    left: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+#datosPartida{
+    position: absolute;
+    left: 4rem;
+    font-size: 2rem;
+}
+#punE{
+    position: absolute;
+    top: 18rem;
+}
+#rondas{
+    position: absolute;
+    top: 29.5rem;
+}
+#punJ{
+    position: absolute;
+    top: 41rem;
+}
+
+.reversocarta{
+    height: 17rem;
+}
+#ladoEnemigo{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 10rem;
+}
+#pilaDeManoE{
+    display: flex;
+}
+#pilaHINDRE{
     display: block;
+    margin-right: 10rem;
+}
+#pilaDeRobar{
+    position: relative;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+#ladoJugador{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 10rem;
+}
+#pilaDeManoJ{
+    display: flex;
+}
+#pilaHINDRJ{
+    display: block;
+    margin-right: 10rem;
+}
+#salirDeParida{
+    position: absolute;
+    height: 4rem;
+    width: 4rem;
+    bottom: 2rem;
+    right: 3rem;
+}
+#imgsalir{
+    height: 4rem;
 }

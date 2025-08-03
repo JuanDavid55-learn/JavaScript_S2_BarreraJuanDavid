@@ -49,7 +49,7 @@
         <h4>Son las acciones que cada jugador tendra que hacer cada cierto numero de turnos.</h4>
         <br>
         <h3>ROYAL TABLE</h3>
-        <h4>Es el conjunto conformado por cuatro cartas de la corona.</h4>
+        <h4>Es el conjunto conformado exclusivamente por cuatro cartas de la corona.</h4>
         <br>
         <br>
         <h3>PUNTAJES</h3>
@@ -57,10 +57,60 @@
         <br>
         <h4>- Las cartas de la corona: principe=10, reina=11, rey=12</h4>
         <br>
-        <h4>- Los azces valen 41 puntos</h4>
+        <h4>- Cada az vale 41 puntos</h4>
         <br>
         <br>
         <button id="salirReglas">Salir</button>
+    </div>
+    <div id="tableroJuego">
+        <div id="datosPartida">
+            <p id="punE">PUNTOS: </p>
+            <p id="rondas">RONDA: </p>
+            <p id="punJ">PUNTOS: </p>
+        </div>
+        <div></div>
+        <div id="ladoEnemigo">
+            <div id="pilaDeManoE" class="pilcartas">
+                <div class="cartas">
+                    <img src="./img/back_bria.png" class="reversocarta">
+                </div>
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+                <div class="cartas">
+                <img src="./img/back_bria.png" class="reversocarta">
+                </div>
+                <div class="cartas">
+                <img src="./img/back_bria.png" class="reversocarta">
+                </div>
+                <div class="cartas">
+                <img src="./img/back_bria.png" class="reversocarta">
+                </div>
+                <div class="cartas">
+                <img src="./img/back_bria.png" class="reversocarta">
+                </div>
+            </div>
+            <div id="pilaHINDRE" class="pilcartas">
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+            </div>
+        </div>
+        <br>
+        <div id="pilaDeRobar" class="pilcartas">
+            <div class="cartas"><div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div></div>
+        </div>
+        <br>
+        <div id="ladoJugador">
+            <div id="pilaDeManoJ" class="pilcartas">
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+            </div>
+            <div id="pilaHINDRJ" class="pilcartas">
+                <div class="cartas"><img src="./img/back_bria.png" class="reversocarta"></div>
+            </div>
+        </div>
+        <div><button id="salirDeParida"><img src="./img/salida.png" id="imgsalir"></button></div>
     </div>
 </body>
 <script src="./script.js"></script>
