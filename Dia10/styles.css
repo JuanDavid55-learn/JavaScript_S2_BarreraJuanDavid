@@ -84,11 +84,11 @@ button{
 }
 #rondas{
     position: absolute;
-    top: 29.5rem;
+    top: 28rem;
 }
 #punJ{
     position: absolute;
-    top: 41rem;
+    top: 39rem;
 }
 #botondeMazo{
     width: auto;
@@ -100,7 +100,7 @@ button{
     padding: 0;
 }
 .reversocarta{
-    height: 17rem;
+    height: 15.8rem;
 }
 #ladoEnemigo{
     display: flex;
@@ -149,13 +149,12 @@ button{
     display: none;
     justify-content: center;
     position: absolute;
+    background-color: #000000;
     align-content: center;
-    background-color: black;
     flex-wrap: wrap;
     gap: 2rem;
     opacity: 0.8;
     min-height: 100vh;
-    padding: 4rem;
     top: 0;
     left: 0;
     left: 0;
