@@ -73,6 +73,7 @@ button{
     z-index: 1;
 }
 #datosPartida{
+    visibility: hidden;
     position: absolute;
     left: 4rem;
     font-size: 2rem;
@@ -89,7 +90,15 @@ button{
     position: absolute;
     top: 41rem;
 }
-
+#botondeMazo{
+    width: auto;
+    height: auto;
+    font-size: auto;
+    margin: 0;
+    background-color: #ddd;
+    border-radius: 0;
+    padding: 0;
+}
 .reversocarta{
     height: 17rem;
 }
@@ -100,10 +109,12 @@ button{
 }
 #pilaDeManoE{
     display: flex;
+    visibility: hidden;
 }
 #pilaHINDRE{
     display: block;
     margin-right: 10rem;
+    visibility: hidden;
 }
 #pilaDeRobar{
     position: relative;
@@ -117,10 +128,12 @@ button{
 }
 #pilaDeManoJ{
     display: flex;
+    visibility: hidden;
 }
 #pilaHINDRJ{
     display: block;
     margin-right: 10rem;
+    visibility: hidden;
 }
 #salirDeParida{
     position: absolute;
@@ -131,4 +144,21 @@ button{
 }
 #imgsalir{
     height: 4rem;
+}
+#vercartasdemano{
+    display: none;
+    justify-content: center;
+    position: absolute;
+    align-content: center;
+    background-color: black;
+    flex-wrap: wrap;
+    gap: 2rem;
+    opacity: 0.8;
+    min-height: 100vh;
+    padding: 4rem;
+    top: 0;
+    left: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }

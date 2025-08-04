@@ -1,4 +1,4 @@
-// botones del html
+// botones del html y otras opciones pickeables
 let reglitas = document.getElementById("verReglas");
 reglitas.addEventListener("click",function (){
     document.getElementById("reglas").style.display= "block";
@@ -15,6 +15,14 @@ let salirPartida = document.getElementById("salirDeParida");
 salirPartida.addEventListener("click",function (){
     document.getElementById("tableroJuego").style.display= "none";
 })
+
+let repartircartas = document.getElementById("botondeMazo");
+repartircartas.addEventListener("click", function () {
+    document.getElementById("pilaDeManoE").style.visibility= "visible";
+    document.getElementById("pilaDeManoJ").style.visibility= "visible";
+    document.getElementById("datosPartida").style.visibility = "visible";
+    document.getElementById("textreparte").style.display = "none";
+});
 
 //crear las cartas
 let todasLasCartas=[];
