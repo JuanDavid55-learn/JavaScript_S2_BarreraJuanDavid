@@ -1,0 +1,12 @@
+#cuadro {
+    width: 100px;
+    height: 100px;
+    background: tomato;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.cambio {
+    background: seagreen;
+    transform: scale(1.2);
+}
