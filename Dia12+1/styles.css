@@ -3,21 +3,49 @@ body{
     padding: 20px;
     text-align: center;
 }
-.resultado{
-    margin-top: 30px;
+.card{
+    background-color: #fff;
+    padding: 15px;
+    justify-content: space-around;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 90vw;
     display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+.card img{
+    width: 10rem;
+    border-radius: 5px;
+    align-self: center;
+}
+#resultados{
+    margin-top: 30px;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 }
-.card{
-    background-color: #fff;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 200px;
+.personaje{
+    display: flex;
+    flex-direction: column;
 }
-.card img{
-    width: 100%;
-    border-radius: 5px;
+.respowerstats{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+.resbiografía{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+.resultadospowerstats{
+    text-align: start;
+    width: auto;
+    margin-left: 3rem;
+}
+.resultadosbiografía{
+    text-align: start;
+    width: auto;
+    margin-left: 3rem;
 }
