@@ -161,3 +161,8 @@ button{
     right: 0;
     z-index: 1;
 }
+#cartucasEnMano{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

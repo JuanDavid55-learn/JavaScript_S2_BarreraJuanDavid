@@ -21,33 +21,38 @@ repartircartas.addEventListener("click", function () {
     document.getElementById("pilaDeManoJ").style.visibility= "visible";
     document.getElementById("datosPartida").style.visibility = "visible";
     document.getElementById("textreparte").style.display = "none";
-    for(i=0;i<2;i=i+1){
-        if(i==0){
-            for(j=0;j<4;j=j+1){
-                setTimeout(cartAlAzar);
-                listCartasMano.push(CartasTem [0]);
-                const eliminar = todasLasCartas.indexOf(CartasTem[0])
-                if(eliminar !== -1){
-                    todasLasCartas.splice(eliminar,1);
-                }
-            }
-        }
+    for (let i = 0; i < 6; i=i+1) {
+        listCartasMano.push(cartaAlAzar());
+        listCartasManoE.push(cartaAlAzar());
     }
+    console.log("tu:", listCartasMano);
+    console.log("enemigo:", listCartasManoE);
+    console.log("cartas restantes del mazo:", todasLasCartas);
 });
-CartasTem.push(cartAlAzar());
-console.log(listCartasMano);
-console.log(CartasTem);
-
 let verManito = document.getElementById("pilaDeManoJ");
 verManito.addEventListener("click",function (){
     document.getElementById("vercartasdemano").style.display= "block";
+    for (let i=0; i<listCartasMano.length; i=i+1){
+        const idCarta =(listCartasMano[i]["code"]);
+        let division = document.getElementById("cartucasEnMano");
+        division.innerHTML += `
+            <div class="card">
+            <img src="https://deckofcardsapi.com/static/img/${idCarta}.png" alt="">
+            </div>
+            `
+        }
+    }
+);
+let salirmanito = document.getElementById("vercartasdemano");
+salirmanito.addEventListener ("click",function(){
+    document.getElementById("vercartasdemano").style.display= "none";
+    document.getElementById("cartucasEnMano").innerHTML=``;
 })
 
 //crear las cartas
 let todasLasCartas=[];
 for(i=2;i<10;i=i+1){
     Htemporal={
-        "image": `https://deckofcardsapi.com/static/img/${i}H.png`,
         "value": `${i}`,
         "suit": `HEARTS`,
         "code": `${i}H`
@@ -57,7 +62,6 @@ for(i=2;i<10;i=i+1){
 
 for(i=2;i<10;i=i+1){
     Stemporal={
-        "image": `https://deckofcardsapi.com/static/img/${i}S.png`,
         "value": `${i}`,
         "suit": `SPADES`,
         "code": `${i}S`
@@ -67,7 +71,6 @@ for(i=2;i<10;i=i+1){
 
 for(i=2;i<10;i=i+1){
     Dtemporal={
-        "image": `https://deckofcardsapi.com/static/img/${i}D.png`,
         "value": `${i}`,
         "suit": `DIAMONDS`,
         "code": `${i}D`
@@ -77,7 +80,6 @@ for(i=2;i<10;i=i+1){
 
 for(i=2;i<10;i=i+1){
     Ctemporal={
-        "image": `https://deckofcardsapi.com/static/img/${i}C.png`,
         "value": `${i}`,
         "suit": `CLUBS`,
         "code": `${i}C`
@@ -92,7 +94,6 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `JACK`,
                     "suit": `HEARTS`,
                     "code": `${tipe2}${tipe}`
@@ -102,7 +103,6 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Jtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `QUEEN`,
                     "suit": `HEARTS`,
                     "code": `${tipe2}${tipe}`
@@ -112,7 +112,6 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Jtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `KING`,
                     "suit": `HEARTS`,
                     "code": `${tipe2}${tipe}`
@@ -127,7 +126,6 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `JACK`,
                     "suit": `SPADES`,
                     "code": `${tipe2}${tipe}`
@@ -137,7 +135,6 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Qtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `QUEEN`,
                     "suit": `SPADES`,
                     "code": `${tipe2}${tipe}`
@@ -147,7 +144,6 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Ktemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `KING`,
                     "suit": `SPADES`,
                     "code": `${tipe2}${tipe}`
@@ -162,7 +158,6 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `JACK`,
                     "suit": `DIAMONDS`,
                     "code": `${tipe2}${tipe}`
@@ -172,7 +167,6 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Qtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `QUEEN`,
                     "suit": `DIAMONDS`,
                     "code": `${tipe2}${tipe}`
@@ -182,7 +176,6 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Ktemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `KING`,
                     "suit": `DIAMONDS`,
                     "code": `${tipe2}${tipe}`
@@ -197,7 +190,6 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `JACK`,
                     "suit": `CLUBS`,
                     "code": `${tipe2}${tipe}`
@@ -207,7 +199,6 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Qtemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `QUEEN`,
                     "suit": `CLUBS`,
                     "code": `${tipe2}${tipe}`
@@ -217,7 +208,6 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Ktemporal={
-                    "image": `https://deckofcardsapi.com/static/img/${tipe2}${tipe}.png`,
                     "value": `KING`,
                     "suit": `CLUBS`,
                     "code": `${tipe2}${tipe}`
@@ -231,7 +221,6 @@ for(i=0;i<4;i=i+1){
 for(i=0;i<4;i=i+1){
     if(i==0){
         AStemporal={
-            "image": `https://deckofcardsapi.com/static/img/AH.png`,
             "value": `AS`,
             "suit": `HEARTS`,
             "code": `AH`
@@ -240,7 +229,6 @@ for(i=0;i<4;i=i+1){
     }
     else if(i==1){
         AStemporal={
-            "image": `https://deckofcardsapi.com/static/img/AS.png`,
             "value": `AS`,
             "suit": `SPADES`,
             "code": `AS`
@@ -249,7 +237,6 @@ for(i=0;i<4;i=i+1){
     }
     else if(i==2){
         AStemporal={
-            "image": `https://deckofcardsapi.com/static/img/AD.png`,
             "value": `AS`,
             "suit": `DIAMONDS`,
             "code": `AD`
@@ -258,7 +245,6 @@ for(i=0;i<4;i=i+1){
     }
     else if(i==3){
         AStemporal={
-            "image": `https://deckofcardsapi.com/static/img/AC.png`,
             "value": `AS`,
             "suit": `CLUBS`,
             "code": `AC`
@@ -273,48 +259,10 @@ let listCartasMano=[];
 let listCartasManoE=[];
 let listCartasHINDR=[];
 let listCartasHINDRE=[];
-let CartasTem=[];
 
-function cartAlAzar (){
-    return todasLasCartas[Math.floor(Math.random()* todasLasCartas.length)];
+function cartaAlAzar() {
+    const indice = Math.floor(Math.random() * todasLasCartas.length);
+    const cartaTem = todasLasCartas[indice];
+    todasLasCartas.splice(indice, 1);
+    return cartaTem;
 }
-
-function vercartasDeMano() {
-    document.getElementById("vercartasdemano").innerHTML=``;
-    const idCartas = JSON.stringify(todasLasCartas);
-    console.log(idCartas);
-    const xhr = new XMLHttpRequest();
-    const url = `https://deckofcardsapi.com/static/img/AC.png${idCartas}`;
-    console.log(url);
-    xhr.open("GET", url, true);
-
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 3) {
-
-            console.log("Cargando...");
-        }
-        else if (xhr.readyState === 4 && xhr.status === 200) {
-            try {
-                const daticos = JSON.parse(xhr.responseText);
-                if (daticos.results && daticos.results.length > 0) {
-                    for (let i = 0; i < daticos.results.length; i++) {
-                        let division = document.getElementById("resultados");
-                        division.innerHTML += `
-                        <div class="card">
-                        <img src="${daticos["results"][i]["image"]}" alt="">
-                        <h3>${daticos["results"][i]["name"]}</h3>
-                        <p><strong>Status:</strong>${daticos["results"][i]["status"]}</p>
-                        <p><strong>Specie:</strong>${daticos["results"][i]["species"]}</p>
-                        </div>
-                        `
-                        console.log(daticos["results"][i]["name"]);
-                    }
-                };
-            }
-            catch (err) {
-                console.log(err.message); //Si algo malo pasa, imprima el error
-            }
-        }
-    };
-    xhr.send();
-};
