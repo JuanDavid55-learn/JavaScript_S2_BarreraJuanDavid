@@ -15,8 +15,8 @@ let salirPartida = document.getElementById("salirDeParida");
 salirPartida.addEventListener("click",function (){
     document.getElementById("tableroJuego").style.display= "none";
 })
-let repartircartas = document.getElementById("botondeMazo");
-repartircartas.addEventListener("click", function () {
+let repartirYEmpezar = document.getElementById("botondeMazo");
+repartirYEmpezar.addEventListener("click", function () {
     document.getElementById("pilaDeManoE").style.visibility= "visible";
     document.getElementById("pilaDeManoJ").style.visibility= "visible";
     document.getElementById("datosPartida").style.visibility = "visible";
@@ -266,3 +266,33 @@ function cartaAlAzar() {
     todasLasCartas.splice(indice, 1);
     return cartaTem;
 }
+
+// rondas juego jugador
+let RondaNuero=1;
+let numronda =document.getElementById("rondas")
+numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
+RondaNuero=RondaNuero+1  
+if(RondaNuero===40){
+    RondaNuero=RondaNuero+1
+}
+else if (RondaNuero%15===0){
+    RondaNuero=RondaNuero+1
+}
+else if (RondaNuero%3===0){
+    RondaNuero=RondaNuero+1
+}
+else if (RondaNuero%5===0){
+    RondaNuero=RondaNuero+1
+}
+else if (RondaNuero%2===0){
+    RondaNuero=RondaNuero+1
+}
+else {
+        
+}
+
+// funciones de rondas
+let alHINDR = document.getElementsByClassName("card");
+alHINDR.addEventListener("click", function () {
+            
+})
