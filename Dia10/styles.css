@@ -73,7 +73,6 @@ button{
     z-index: 1;
 }
 #datosPartida{
-    visibility: hidden;
     position: absolute;
     left: 4rem;
     font-size: 2rem;
@@ -91,6 +90,15 @@ button{
     top: 39rem;
 }
 #botondeMazo{
+    width: auto;
+    height: auto;
+    font-size: auto;
+    margin: 0;
+    background-color: #ddd;
+    border-radius: 0;
+    padding: 0;
+}
+#botondehindr{
     width: auto;
     height: auto;
     font-size: auto;
@@ -161,13 +169,33 @@ button{
     right: 0;
     z-index: 1;
 }
+#verCartasHindr{
+    display: none;
+    justify-content: center;
+    position: absolute;
+    background-color: #000000;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    opacity: 0.8;
+    min-height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
 #cartucasEnMano{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
+#cartucasHindr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .dehindr{
-    display: none;
     width: 10rem;
     height: 5rem;
     font-size: 2rem;
@@ -175,9 +203,11 @@ button{
     background-color: #ddd;
     border-radius: 10px;
 }
-#textHINDR{
+#movHINDR{
     position: absolute;
+    left: 41.5rem;
+    top: 4rem;
+}
+#botonesdemoverh{
     display: none;
-    left: 0;
-    right: 0;
 }

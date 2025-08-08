@@ -19,8 +19,8 @@ let repartirYEmpezar = document.getElementById("botondeMazo");
 repartirYEmpezar.addEventListener("click", function () {
     document.getElementById("pilaDeManoE").style.visibility= "visible";
     document.getElementById("pilaDeManoJ").style.visibility= "visible";
-    document.getElementById("datosPartida").style.visibility = "visible";
     document.getElementById("textreparte").style.display = "none";
+    laRonda();
     for (let i = 0; i < 6; i=i+1) {
         listCartasMano.push(cartaAlAzar());
         listCartasManoE.push(cartaAlAzar());
@@ -47,6 +47,40 @@ let salirmanito = document.getElementById("vercartasdemano");
 salirmanito.addEventListener ("click",function(){
     document.getElementById("vercartasdemano").style.display= "none";
     document.getElementById("cartucasEnMano").innerHTML=``;
+})
+let movAlH = document.getElementById("movHINDR");
+movAlH.addEventListener ("click",function(){
+    document.getElementById("vercartasdemano").style.display= "block";
+    document.getElementById("botonesdemoverh").style.display = "block";
+    for (let i=0; i<listCartasMano.length; i=i+1){
+        const idCarta =(listCartasMano[i]["code"]);
+        let division = document.getElementById("cartucasEnMano");
+        division.innerHTML += `
+            <div id="card${i+1}">
+            <img src="https://deckofcardsapi.com/static/img/${idCarta}.png" alt="">
+            </div>
+            `
+        }
+    }
+)
+let verHINDR = document.getElementById("botondehindr");
+verHINDR.addEventListener("click", function () {
+    document.getElementById("verCartasHindr").style.display= "block";
+    for (let i=0; i<listCartasHINDR.length; i=i+1){
+        const idCarta =(listCartasHINDR[i]["code"]);
+        let division = document.getElementById("cartucasHindr");
+        division.innerHTML += `
+            <div id="card${i+1}">
+            <img src="https://deckofcardsapi.com/static/img/${idCarta}.png" alt="">
+            </div>
+            `
+        }
+    }
+);
+let salirHINDR = document.getElementById("verCartasHindr");
+salirHINDR.addEventListener ("click",function(){
+    document.getElementById("verCartasHindr").style.display= "none";
+    document.getElementById("cartucasHindr").innerHTML=``;
 })
 
 //crear las cartas
@@ -268,29 +302,32 @@ function cartaAlAzar() {
 }
 
 // rondas juego jugador
-let RondaNuero=1;
+let RondaNuero=0;
 let numronda =document.getElementById("rondas")
 numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
 
-if(RondaNuero===40){
+function laRonda(){
+    RondaNuero=RondaNuero+1;
 }
-else if (RondaNuero%15===0){
-    RondaNuero=RondaNuero+1
-}
-else if (RondaNuero%3===0){
-    RondaNuero=RondaNuero+1
-}
-else if (RondaNuero%5===0){
-    RondaNuero=RondaNuero+1
-}
-else if (RondaNuero%2===0){
-    RondaNuero=RondaNuero+1
-}
-else if(RondaNuero%1===0){
-    function rondasComunes(){
-        document.getElementById("textHINDR").style.display = "block";
-        document.getElementsByClassName("dehindr").style.display = "block";
-
+for (let i=1;i<41;i=i+1){
+    if(i===40){
+    }
+    else if (i%15===0){
+        i=i+1
+    }
+    else if (i%3===0){
+        i=i+1
+    }
+    else if (i%5===0){
+        i=i+1
+    }
+    else if (i%2===0){
+        i=i+1
+    }
+    else if(i%1===0){
+        function rondasComunes(){
+            
+        }
     }
 }
 
@@ -299,35 +336,47 @@ let carta1 = document.getElementById("deHindr1");
 carta1.addEventListener("click", function () {
 listCartasHINDR.push(listCartasMano[0]);
 listCartasMano.splice(0,1);
+document.getElementById("botonesdemoverh").style.display = "none";
+document.getElementById("pilaHINDRJ").style.visibility = "visible";
 console.log("pila hindr",listCartasHINDR);
 });
 let carta2 = document.getElementById("deHindr2");
 carta2.addEventListener("click", function () {
 listCartasHINDR.push(listCartasMano[1]);
 listCartasMano.splice(1,1);
+document.getElementById("botonesdemoverh").style.display = "none";
+document.getElementById("pilaHINDRJ").style.visibility = "visible";
 console.log("pila hindr",listCartasHINDR);
 });
 let carta3 = document.getElementById("deHindr3");
 carta3.addEventListener("click", function () {
 listCartasHINDR.push(listCartasMano[2]);
 listCartasMano.splice(2,1);
+document.getElementById("botonesdemoverh").style.display = "none";
+document.getElementById("pilaHINDRJ").style.visibility = "visible";
 console.log("pila hindr",listCartasHINDR);
 });
 let carta4 = document.getElementById("deHindr4");
 carta4.addEventListener("click", function () {
 listCartasHINDR.push(listCartasMano[3]);
 listCartasMano.splice(3,1);
+document.getElementById("botonesdemoverh").style.display = "none";
+document.getElementById("pilaHINDRJ").style.visibility = "visible";
 console.log("pila hindr",listCartasHINDR);
 });
 let carta5 = document.getElementById("deHindr5");
 carta5.addEventListener("click", function () {
 listCartasHINDR.push(listCartasMano[4]);
 listCartasMano.splice(4,1);
+document.getElementById("botonesdemoverh").style.display = "none";
+document.getElementById("pilaHINDRJ").style.visibility = "visible";
 console.log("pila hindr",listCartasHINDR);
 });
 let carta6 = document.getElementById("deHindr6");
 carta6.addEventListener("click", function () {
 listCartasHINDR.push(listCartasMano[5]);
 listCartasMano.splice(5,1);
+document.getElementById("botonesdemoverh").style.display = "none";
+document.getElementById("pilaHINDRJ").style.visibility = "visible";
 console.log("pila hindr",listCartasHINDR);
 });
