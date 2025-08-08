@@ -36,7 +36,7 @@ verManito.addEventListener("click",function (){
         const idCarta =(listCartasMano[i]["code"]);
         let division = document.getElementById("cartucasEnMano");
         division.innerHTML += `
-            <div class="card">
+            <div id="card${i+1}">
             <img src="https://deckofcardsapi.com/static/img/${idCarta}.png" alt="">
             </div>
             `
@@ -271,9 +271,8 @@ function cartaAlAzar() {
 let RondaNuero=1;
 let numronda =document.getElementById("rondas")
 numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
-RondaNuero=RondaNuero+1  
+
 if(RondaNuero===40){
-    RondaNuero=RondaNuero+1
 }
 else if (RondaNuero%15===0){
     RondaNuero=RondaNuero+1
@@ -287,12 +286,48 @@ else if (RondaNuero%5===0){
 else if (RondaNuero%2===0){
     RondaNuero=RondaNuero+1
 }
-else {
-        
+else if(RondaNuero%1===0){
+    function rondasComunes(){
+        document.getElementById("textHINDR").style.display = "block";
+        document.getElementsByClassName("dehindr").style.display = "block";
+
+    }
 }
 
-// funciones de rondas
-let alHINDR = document.getElementsByClassName("card");
-alHINDR.addEventListener("click", function () {
-            
-})
+// funciones de cartas de la mano
+let carta1 = document.getElementById("deHindr1");
+carta1.addEventListener("click", function () {
+listCartasHINDR.push(listCartasMano[0]);
+listCartasMano.splice(0,1);
+console.log("pila hindr",listCartasHINDR);
+});
+let carta2 = document.getElementById("deHindr2");
+carta2.addEventListener("click", function () {
+listCartasHINDR.push(listCartasMano[1]);
+listCartasMano.splice(1,1);
+console.log("pila hindr",listCartasHINDR);
+});
+let carta3 = document.getElementById("deHindr3");
+carta3.addEventListener("click", function () {
+listCartasHINDR.push(listCartasMano[2]);
+listCartasMano.splice(2,1);
+console.log("pila hindr",listCartasHINDR);
+});
+let carta4 = document.getElementById("deHindr4");
+carta4.addEventListener("click", function () {
+listCartasHINDR.push(listCartasMano[3]);
+listCartasMano.splice(3,1);
+console.log("pila hindr",listCartasHINDR);
+});
+let carta5 = document.getElementById("deHindr5");
+carta5.addEventListener("click", function () {
+listCartasHINDR.push(listCartasMano[4]);
+listCartasMano.splice(4,1);
+console.log("pila hindr",listCartasHINDR);
+});
+let carta6 = document.getElementById("deHindr6");
+carta6.addEventListener("click", function () {
+listCartasHINDR.push(listCartasMano[5]);
+listCartasMano.splice(5,1);
+console.log("pila hindr",listCartasHINDR);
+});

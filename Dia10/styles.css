@@ -156,7 +156,7 @@ button{
     opacity: 0.8;
     min-height: 100vh;
     top: 0;
-    left: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     z-index: 1;
@@ -165,4 +165,19 @@ button{
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+.dehindr{
+    display: none;
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem;
+    margin: 2rem;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+#textHINDR{
+    position: absolute;
+    display: none;
+    left: 0;
+    right: 0;
 }
