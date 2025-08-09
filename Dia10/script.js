@@ -81,6 +81,26 @@ salirHINDR.addEventListener ("click",function(){
     document.getElementById("verCartasHindr").style.display= "none";
     document.getElementById("cartucasHindr").innerHTML=``;
 })
+let robarDelHindr = document.getElementById("botondehindrE");
+robarDelHindr.addEventListener("click",function(){
+    if(RondaNuero%3===0){
+        listCartasMano.push(robarDPilaHE());
+        listCartasManoE.push(elERobaDPilaH());
+        console.log("robaste de su pila hindr:",listCartasMano);
+        console.log("te ha robado de tu hindr:",listCartasManoE);
+        document.getElementById("botondehindrE").style.border = "none";
+        document.getElementById("primerEvent").style.display = "none";
+        document.getElementById("robarcartica").style.display = "none";
+        RondaNuero=RondaNuero+1;
+        numronda =document.getElementById("rondas").innerHTML =`<p>RONDA:</p>`
+        numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
+        document.getElementById("movHINDR").style.display = "block";
+        console.log("cartas de mazo:",todasLasCartas);
+        console.log("tus cartas:",listCartasMano);
+        document.getElementById("ultimaCarta").style.visibility = "visible";
+        document.getElementById("ultimaCartaE").style.visibility = "visible";
+    }
+});
 
 //crear las cartas
 let todasLasCartas=[];
@@ -299,6 +319,20 @@ function cartaAlAzar() {
     todasLasCartas.splice(indice, 1);
     return cartaTem;
 }
+function movimientoAlAzardelE(){
+    const indice = Math.floor(Math.random() * listCartasManoE.length);
+    const cartaTem = listCartasManoE[indice];
+    listCartasManoE.splice(indice, 1);
+    return cartaTem;
+}
+function robarDPilaHE(){
+    const cartaTem = listCartasHINDRE.pop();
+    return cartaTem;
+}
+function elERobaDPilaH(){
+    const cartaTem = listCartasHINDR.pop();
+    return cartaTem;
+}
 
 // rondas juego jugadores
 let RondaNuero=1;
@@ -308,6 +342,16 @@ EmpezarRondas.addEventListener("click", function () {
     numronda =document.getElementById("rondas")
     numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
     document.getElementById("movHINDR").style.display = "block";
+});
+let finalizarYEmpezarNueva = document.getElementById("robarcartica");
+finalizarYEmpezarNueva.addEventListener("click", function () {
+    document.getElementById("robarcartica").style.display = "none";
+    RondaNuero=RondaNuero+1;
+    numronda =document.getElementById("rondas").innerHTML =`<p>RONDA:</p>`
+    numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
+    document.getElementById("movHINDR").style.display = "block";
+    console.log("cartas de mazo:",todasLasCartas);
+    console.log("tus cartas:",listCartasMano);
 });
 
 // funciones de las cartas de las mano
@@ -321,6 +365,17 @@ document.getElementById("ultimaCarta").style.visibility = "hidden";
 document.getElementById("movHINDR").style.display = "none";
 document.getElementById("robarcartica").style.display = "block";
 console.log("pila hindr",listCartasHINDR);
+
+listCartasHINDRE.push(movimientoAlAzardelE());
+console.log("pila HINDR del enemigo:",listCartasHINDRE);
+console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
+document.getElementById("pilaHINDRE").style.visibility = "visible";
+document.getElementById("ultimaCartaE").style.visibility = "hidden";
+
+if(RondaNuero%3===0){
+    document.getElementById("primerEvent").style.display = "block";
+    document.getElementById("botondehindrE").style.border = "10px solid red";
+}
 });
 let carta2 = document.getElementById("deHindr2");
 carta2.addEventListener("click", function () {
@@ -332,6 +387,17 @@ document.getElementById("ultimaCarta").style.visibility = "hidden";
 document.getElementById("movHINDR").style.display = "none";
 document.getElementById("robarcartica").style.display = "block";
 console.log("pila hindr",listCartasHINDR);
+
+listCartasHINDRE.push(movimientoAlAzardelE());
+console.log("pila HINDR del enemigo:",listCartasHINDRE);
+console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
+document.getElementById("pilaHINDRE").style.visibility = "visible";
+document.getElementById("ultimaCartaE").style.visibility = "hidden";
+
+if(RondaNuero%3===0){
+    document.getElementById("primerEvent").style.display = "block";
+    document.getElementById("botondehindrE").style.border = "10px solid red";
+}
 });
 let carta3 = document.getElementById("deHindr3");
 carta3.addEventListener("click", function () {
@@ -343,6 +409,17 @@ document.getElementById("ultimaCarta").style.visibility = "hidden";
 document.getElementById("movHINDR").style.display = "none";
 document.getElementById("robarcartica").style.display = "block";
 console.log("pila hindr",listCartasHINDR);
+
+listCartasHINDRE.push(movimientoAlAzardelE());
+console.log("pila HINDR del enemigo:",listCartasHINDRE);
+console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
+document.getElementById("pilaHINDRE").style.visibility = "visible";
+document.getElementById("ultimaCartaE").style.visibility = "hidden";
+
+if(RondaNuero%3===0){
+    document.getElementById("primerEvent").style.display = "block";
+    document.getElementById("botondehindrE").style.border = "10px solid red";
+}
 });
 let carta4 = document.getElementById("deHindr4");
 carta4.addEventListener("click", function () {
@@ -354,6 +431,17 @@ document.getElementById("ultimaCarta").style.visibility = "hidden";
 document.getElementById("movHINDR").style.display = "none";
 document.getElementById("robarcartica").style.display = "block";
 console.log("pila hindr",listCartasHINDR);
+
+listCartasHINDRE.push(movimientoAlAzardelE());
+console.log("pila HINDR del enemigo:",listCartasHINDRE);
+console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
+document.getElementById("pilaHINDRE").style.visibility = "visible";
+document.getElementById("ultimaCartaE").style.visibility = "hidden";
+
+if(RondaNuero%3===0){
+    document.getElementById("primerEvent").style.display = "block";
+    document.getElementById("botondehindrE").style.border = "10px solid red";
+}
 });
 let carta5 = document.getElementById("deHindr5");
 carta5.addEventListener("click", function () {
@@ -365,6 +453,17 @@ document.getElementById("ultimaCarta").style.visibility = "hidden";
 document.getElementById("movHINDR").style.display = "none";
 document.getElementById("robarcartica").style.display = "block";
 console.log("pila hindr",listCartasHINDR);
+
+listCartasHINDRE.push(movimientoAlAzardelE());
+console.log("pila HINDR del enemigo:",listCartasHINDRE);
+console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
+document.getElementById("pilaHINDRE").style.visibility = "visible";
+document.getElementById("ultimaCartaE").style.visibility = "hidden";
+
+if(RondaNuero%3===0){
+    document.getElementById("primerEvent").style.display = "block";
+    document.getElementById("botondehindrE").style.border = "10px solid red";
+}
 });
 let carta6 = document.getElementById("deHindr6");
 carta6.addEventListener("click", function () {
@@ -376,6 +475,17 @@ document.getElementById("ultimaCarta").style.visibility = "hidden";
 document.getElementById("movHINDR").style.display = "none";
 document.getElementById("robarcartica").style.display = "block";
 console.log("pila hindr",listCartasHINDR);
+
+listCartasHINDRE.push(movimientoAlAzardelE());
+console.log("pila HINDR del enemigo:",listCartasHINDRE);
+console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
+document.getElementById("pilaHINDRE").style.visibility = "visible";
+document.getElementById("ultimaCartaE").style.visibility = "hidden";
+
+if(RondaNuero%3===0){
+    document.getElementById("primerEvent").style.display = "block";
+    document.getElementById("botondehindrE").style.border = "10px solid red";
+}
 });
 
 let robarCartica = document.getElementById("robarcartica");
@@ -383,14 +493,8 @@ robarCartica.addEventListener("click", function () {
     listCartasMano.push(cartaAlAzar());
     document.getElementById("ultimaCarta").style.visibility = "visible";
     console.log("(haz robado una carta) tus cartas:",listCartasMano);
-});
-let finalizarYEmpezarNueva = document.getElementById("robarcartica");
-finalizarYEmpezarNueva.addEventListener("click", function () {
-    document.getElementById("robarcartica").style.display = "none";
-    RondaNuero=RondaNuero+1;
-    numronda =document.getElementById("rondas").innerHTML =`<p>RONDA:</p>`
-    numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
-    document.getElementById("movHINDR").style.display = "block";
-    console.log("cartas de mazo:",todasLasCartas);
-    console.log("tus cartas:",listCartasMano);
+
+    listCartasManoE.push(cartaAlAzar());
+    document.getElementById("ultimaCartaE").style.visibility = "visible";
+    console.log("(ha robado una carta) cartas enemigas:",listCartasMano);
 });

@@ -98,7 +98,7 @@ button{
     border-radius: 0;
     padding: 0;
 }
-#botondehindr{
+.botondehindr{
     width: auto;
     height: auto;
     font-size: auto;
@@ -217,4 +217,18 @@ button{
     position: absolute;
     left: 41.5rem;
     top: 4rem;
+}
+#primerEvent{
+    background-color: #000000;
+    display: none;
+    position: absolute;
+    top: 23rem;
+    left: 30rem;
+    padding: 1rem;
+    width: 60rem;
+    border-radius: 1rem;
+}
+#imgWL{
+    height: 14rem;
+    border-radius: 2rem;
 }
