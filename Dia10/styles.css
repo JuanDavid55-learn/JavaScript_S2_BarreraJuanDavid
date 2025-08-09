@@ -204,10 +204,17 @@ button{
     border-radius: 10px;
 }
 #movHINDR{
+    display: none;
     position: absolute;
     left: 41.5rem;
     top: 4rem;
 }
 #botonesdemoverh{
     display: none;
+}
+#robarcartica{
+    display: none;
+    position: absolute;
+    left: 41.5rem;
+    top: 4rem;
 }
