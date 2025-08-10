@@ -27,7 +27,7 @@
         <br>
         <h4>- Whim (cada 5 rondas); ambos jugadores revelaran las cartas de su mano.</h4>
         <br>
-        <h4>- Rough looting: cuando Waste looting y Whim ocurren la misma ronda, robas la carta a ciegas directamente de la mano del rival.</h4>
+        <h4>- Rough looting: cuando Waste looting y Whim ocurren la misma ronda no se hace ninguna, en cambio, ambos jugadores cambiaran una carta de su mano al otro, adicionalmente y a ciegas.</h4>
         <br>
         <h3>Condiciones para ganar</h3>
         <br>
@@ -84,7 +84,7 @@
         </div>
         <br>
         <div id="pilaDeRobar" class="pilcartas">
-            <div>
+            <div id="loDelCentro">
                 <button id="botondeMazo"><img src="./img/back_bria.png" class="reversocarta"></button>
                 <h4 id="textreparte">Reparte...</h4>
                 <button id="movHINDR">Mueve al HINDR</button>
@@ -106,15 +106,22 @@
             </div>
         </div>
         <div><button id="salirDeParida"><img src="./img/salida.png" id="imgsalir"></button></div>
-        <div id="primerEvent">
-            <img src="./img/pokerjoker.jpg" id="imgWL">
+        <div id="primerEvent" class="eventicos">
+            <img src="./img/pokerjoker.jpg" class="imgEvents">
             <div>
                 <h4>-- WASTE LOOGING --</h4>
                 <h4>saca la carta de la pila HINDR del rival</h4>
             </div>
         </div>
+        <div id="tercerEvent" class="eventicos">
+            <img src="./img/kingpoker.webp" class="imgEvents">
+            <div>
+                <h4>-- ROUGH LOOTING --</h4>
+                <h4>le robas una carta al enemigo</h4>
+            </div>
+        </div>
     </div>
-    <div id="vercartasdemano">
+    <div id="vercartasdemano" class="visualizar">
         <div id="cartucasEnMano">
 
         </div>
@@ -127,7 +134,23 @@
             <button class="dehindr" id="deHindr6">HINDR</button>
         </div>
     </div>
-    <div id="verCartasHindr">
+    <div id="vercarEnemigo" class="visualizar">
+        <div id="cartucasEnManoE">
+            <div><img src="./img/back_bria.png" alt=""></div>
+            <div><img src="./img/back_bria.png" alt=""></div>
+            <div><img src="./img/back_bria.png" alt=""></div>
+            <div><img src="./img/back_bria.png" alt=""></div>
+            <div><img src="./img/back_bria.png" alt=""></div>
+        </div>
+        <div id="botonesDerobarE">
+            <button class="robarDE" id="robarDE1">ROBAR</button>
+            <button class="robarDE" id="robarDE2">ROBAR</button>
+            <button class="robarDE" id="robarDE3">ROBAR</button>
+            <button class="robarDE" id="robarDE4">ROBAR</button>
+            <button class="robarDE" id="robarDE5">ROBAR</button>
+        </div>
+    </div>
+    <div id="verCartasHindr" class="visualizar">
         <div id="cartucasHindr">
 
         </div>

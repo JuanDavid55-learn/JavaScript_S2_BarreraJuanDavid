@@ -153,23 +153,7 @@ button{
 #imgsalir{
     height: 4rem;
 }
-#vercartasdemano{
-    display: none;
-    justify-content: center;
-    position: absolute;
-    background-color: #000000;
-    align-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    opacity: 0.8;
-    min-height: 100vh;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-#verCartasHindr{
+.visualizar{
     display: none;
     justify-content: center;
     position: absolute;
@@ -190,12 +174,25 @@ button{
     flex-direction: row;
     justify-content: center;
 }
+#cartucasEnManoE{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 #cartucasHindr{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 .dehindr{
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem;
+    margin: 2rem;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+.robarDE{
     width: 10rem;
     height: 5rem;
     font-size: 2rem;
@@ -218,17 +215,17 @@ button{
     left: 41.5rem;
     top: 4rem;
 }
-#primerEvent{
+.eventicos{
     background-color: #000000;
     display: none;
     position: absolute;
-    top: 23rem;
+    top: 24rem;
     left: 30rem;
     padding: 1rem;
     width: 60rem;
     border-radius: 1rem;
 }
-#imgWL{
+.imgEvents{
     height: 14rem;
     border-radius: 2rem;
 }

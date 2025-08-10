@@ -17,16 +17,22 @@ salirPartida.addEventListener("click",function (){
 })
 let repartirYEmpezar = document.getElementById("botondeMazo");
 repartirYEmpezar.addEventListener("click", function () {
-    document.getElementById("pilaDeManoE").style.visibility= "visible";
-    document.getElementById("pilaDeManoJ").style.visibility= "visible";
-    document.getElementById("textreparte").style.display = "none";
-    for (let i = 0; i < 6; i=i+1) {
-        listCartasMano.push(cartaAlAzar());
-        listCartasManoE.push(cartaAlAzar());
+    if(RondaNuero>=1){
+        console.log("este boton no sirveeeeeee!!");
     }
-    console.log("tu:", listCartasMano);
-    console.log("enemigo:", listCartasManoE);
-    console.log("cartas restantes del mazo:", todasLasCartas);
+    else{
+        document.getElementById("pilaDeManoE").style.visibility= "visible";
+        document.getElementById("pilaDeManoJ").style.visibility= "visible";
+        document.getElementById("textreparte").style.display = "none";
+        document.getElementById("loDelCentro").style.textAlign = "end";
+        for (let i = 0; i < 6; i=i+1) {
+            listCartasMano.push(cartaAlAzar());
+            listCartasManoE.push(cartaAlAzar());
+        }
+        console.log("tu:", listCartasMano);
+        console.log("enemigo:", listCartasManoE);
+        console.log("cartas restantes del mazo:", todasLasCartas);
+    }
 });
 let verManito = document.getElementById("pilaDeManoJ");
 verManito.addEventListener("click",function (){
@@ -120,7 +126,12 @@ robarDelHindr.addEventListener("click",function(){
         }
     }
 });
-
+let verManoE = document.getElementById("pilaDeManoE");
+verManoE.addEventListener("click",function (){
+    if(RondaNuero%15===0){
+        document.getElementById("vercarEnemigo").style.display = "block";
+    }
+});
 //crear las cartas
 let todasLasCartas=[];
 for(i=2;i<10;i=i+1){
@@ -352,15 +363,33 @@ function elERobaDPilaH(){
     const cartaTem = listCartasHINDR.pop();
     return cartaTem;
 }
+function robaAlAzarDME(){
+    const indice = Math.floor(Math.random() * listCartasManoE.length);
+    const cartaTem = listCartasManoE[indice];
+    listCartasManoE.splice(indice, 1);
+    return cartaTem;
+}
+function EMRobaDMano(){
+    const indice = Math.floor(Math.random() * listCartasMano.length);
+    const cartaTem = listCartasMano[indice];
+    listCartasMano.splice(indice, 1);
+    return cartaTem;
+}
 
 // rondas juego jugadores
-let RondaNuero=1;
+let RondaNuero=0;
 
 let EmpezarRondas = document.getElementById("botondeMazo");
 EmpezarRondas.addEventListener("click", function () {
-    numronda =document.getElementById("rondas")
-    numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
-    document.getElementById("movHINDR").style.display = "block";
+    if(RondaNuero>=1){
+        console.log("deja de intentar...")
+    }
+    else{
+        RondaNuero=RondaNuero+1;
+        numronda =document.getElementById("rondas")
+        numronda =document.getElementById("rondas").innerHTML +=`${RondaNuero}`
+        document.getElementById("movHINDR").style.display = "block";
+    }
 });
 let finalizarYEmpezarNueva = document.getElementById("robarcartica");
 finalizarYEmpezarNueva.addEventListener("click", function () {
@@ -395,7 +424,8 @@ finalizarYEmpezarNueva.addEventListener("click", function () {
     console.log("tus cartas:",listCartasMano);
 });
 
-// funciones de las cartas de las mano
+// funciones de las botones acciones por ronda
+// funciones de botones hindr
 let carta1 = document.getElementById("deHindr1");
 carta1.addEventListener("click", function () {
 listCartasHINDR.push(listCartasMano[0]);
@@ -411,7 +441,33 @@ console.log("pila HINDR del enemigo:",listCartasHINDRE);
 console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
 document.getElementById("pilaHINDRE").style.visibility = "visible";
 
-if(RondaNuero%5===0){
+if(RondaNuero%15===0){
+    document.getElementById("tercerEvent").style.display = "block";
+    document.getElementById("pilaDeManoE").style.border = "10px solid red";
+    document.getElementById("pilaDeManoE").innerHTML=``;
+    document.getElementById("pilaDeManoJ").innerHTML=``;
+    let divisionj = document.getElementById("pilaDeManoJ");
+    divisionj.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCarta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    let divisione = document.getElementById("pilaDeManoE");
+    divisione.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCartaE"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    document.getElementById("ultimaCarta").style.display = "none";
+    document.getElementById("ultimaCartaE").style.display = "none";
+}
+else if(RondaNuero%5===0){
     document.getElementById("pilaDeManoE").innerHTML=``;
     document.getElementById("pilaDeManoJ").innerHTML=``;
     for (let i=0; i<listCartasMano.length; i=i+1){
@@ -432,6 +488,8 @@ if(RondaNuero%5===0){
 else if(RondaNuero%3===0){
     document.getElementById("primerEvent").style.display = "block";
     document.getElementById("botondehindrE").style.border = "10px solid red";
+    document.getElementById("ultimaCarta").style.visibility = "hidden";
+    document.getElementById("ultimaCartaE").style.visibility = "hidden";
 }
 else if(RondaNuero%1===0){
    document.getElementById("ultimaCarta").style.visibility = "hidden";
@@ -453,7 +511,33 @@ console.log("pila HINDR del enemigo:",listCartasHINDRE);
 console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
 document.getElementById("pilaHINDRE").style.visibility = "visible";
 
-if(RondaNuero%5===0){
+if(RondaNuero%15===0){
+    document.getElementById("tercerEvent").style.display = "block";
+    document.getElementById("pilaDeManoE").style.border = "10px solid red";
+    document.getElementById("pilaDeManoE").innerHTML=``;
+    document.getElementById("pilaDeManoJ").innerHTML=``;
+    let divisionj = document.getElementById("pilaDeManoJ");
+    divisionj.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCarta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    let divisione = document.getElementById("pilaDeManoE");
+    divisione.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCartaE"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    document.getElementById("ultimaCarta").style.display = "none";
+    document.getElementById("ultimaCartaE").style.display = "none";
+}
+else if(RondaNuero%5===0){
     document.getElementById("pilaDeManoE").innerHTML=``;
     document.getElementById("pilaDeManoJ").innerHTML=``;
     for (let i=0; i<listCartasMano.length; i=i+1){
@@ -474,6 +558,8 @@ if(RondaNuero%5===0){
 else if(RondaNuero%3===0){
     document.getElementById("primerEvent").style.display = "block";
     document.getElementById("botondehindrE").style.border = "10px solid red";
+    document.getElementById("ultimaCarta").style.visibility = "hidden";
+    document.getElementById("ultimaCartaE").style.visibility = "hidden";
 }
 else if(RondaNuero%1===0){
    document.getElementById("ultimaCarta").style.visibility = "hidden";
@@ -495,7 +581,33 @@ console.log("pila HINDR del enemigo:",listCartasHINDRE);
 console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
 document.getElementById("pilaHINDRE").style.visibility = "visible";
 
-if(RondaNuero%5===0){
+if(RondaNuero%15===0){
+    document.getElementById("tercerEvent").style.display = "block";
+    document.getElementById("pilaDeManoE").style.border = "10px solid red";
+    document.getElementById("pilaDeManoE").innerHTML=``;
+    document.getElementById("pilaDeManoJ").innerHTML=``;
+    let divisionj = document.getElementById("pilaDeManoJ");
+    divisionj.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCarta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    let divisione = document.getElementById("pilaDeManoE");
+    divisione.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCartaE"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    document.getElementById("ultimaCarta").style.display = "none";
+    document.getElementById("ultimaCartaE").style.display = "none";
+}
+else if(RondaNuero%5===0){
     document.getElementById("pilaDeManoE").innerHTML=``;
     document.getElementById("pilaDeManoJ").innerHTML=``;
     for (let i=0; i<listCartasMano.length; i=i+1){
@@ -516,6 +628,8 @@ if(RondaNuero%5===0){
 else if(RondaNuero%3===0){
     document.getElementById("primerEvent").style.display = "block";
     document.getElementById("botondehindrE").style.border = "10px solid red";
+    document.getElementById("ultimaCarta").style.visibility = "hidden";
+    document.getElementById("ultimaCartaE").style.visibility = "hidden";
 }
 else if(RondaNuero%1===0){
    document.getElementById("ultimaCarta").style.visibility = "hidden";
@@ -537,7 +651,33 @@ console.log("pila HINDR del enemigo:",listCartasHINDRE);
 console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
 document.getElementById("pilaHINDRE").style.visibility = "visible";
 
-if(RondaNuero%5===0){
+if(RondaNuero%15===0){
+    document.getElementById("tercerEvent").style.display = "block";
+    document.getElementById("pilaDeManoE").style.border = "10px solid red";
+    document.getElementById("pilaDeManoE").innerHTML=``;
+    document.getElementById("pilaDeManoJ").innerHTML=``;
+    let divisionj = document.getElementById("pilaDeManoJ");
+    divisionj.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCarta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    let divisione = document.getElementById("pilaDeManoE");
+    divisione.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCartaE"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    document.getElementById("ultimaCarta").style.display = "none";
+    document.getElementById("ultimaCartaE").style.display = "none";
+}
+else if(RondaNuero%5===0){
     document.getElementById("pilaDeManoE").innerHTML=``;
     document.getElementById("pilaDeManoJ").innerHTML=``;
     for (let i=0; i<listCartasMano.length; i=i+1){
@@ -558,6 +698,8 @@ if(RondaNuero%5===0){
 else if(RondaNuero%3===0){
     document.getElementById("primerEvent").style.display = "block";
     document.getElementById("botondehindrE").style.border = "10px solid red";
+    document.getElementById("ultimaCarta").style.visibility = "hidden";
+    document.getElementById("ultimaCartaE").style.visibility = "hidden";
 }
 else if(RondaNuero%1===0){
    document.getElementById("ultimaCarta").style.visibility = "hidden";
@@ -579,7 +721,33 @@ console.log("pila HINDR del enemigo:",listCartasHINDRE);
 console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
 document.getElementById("pilaHINDRE").style.visibility = "visible";
 
-if(RondaNuero%5===0){
+if(RondaNuero%15===0){
+    document.getElementById("tercerEvent").style.display = "block";
+    document.getElementById("pilaDeManoE").style.border = "10px solid red";
+    document.getElementById("pilaDeManoE").innerHTML=``;
+    document.getElementById("pilaDeManoJ").innerHTML=``;
+    let divisionj = document.getElementById("pilaDeManoJ");
+    divisionj.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCarta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    let divisione = document.getElementById("pilaDeManoE");
+    divisione.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCartaE"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    document.getElementById("ultimaCarta").style.display = "none";
+    document.getElementById("ultimaCartaE").style.display = "none";
+}
+else if(RondaNuero%5===0){
     document.getElementById("pilaDeManoE").innerHTML=``;
     document.getElementById("pilaDeManoJ").innerHTML=``;
     for (let i=0; i<listCartasMano.length; i=i+1){
@@ -600,6 +768,8 @@ if(RondaNuero%5===0){
 else if(RondaNuero%3===0){
     document.getElementById("primerEvent").style.display = "block";
     document.getElementById("botondehindrE").style.border = "10px solid red";
+    document.getElementById("ultimaCarta").style.visibility = "hidden";
+    document.getElementById("ultimaCartaE").style.visibility = "hidden";
 }
 else if(RondaNuero%1===0){
    document.getElementById("ultimaCarta").style.visibility = "hidden";
@@ -621,7 +791,33 @@ console.log("pila HINDR del enemigo:",listCartasHINDRE);
 console.log("el enemigo se des-hizo de una carta:",listCartasManoE);
 document.getElementById("pilaHINDRE").style.visibility = "visible";
 
-if(RondaNuero%5===0){
+if(RondaNuero%15===0){
+    document.getElementById("tercerEvent").style.display = "block";
+    document.getElementById("pilaDeManoE").style.border = "10px solid red";
+    document.getElementById("pilaDeManoE").innerHTML=``;
+    document.getElementById("pilaDeManoJ").innerHTML=``;
+    let divisionj = document.getElementById("pilaDeManoJ");
+    divisionj.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCarta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    let divisione = document.getElementById("pilaDeManoE");
+    divisione.innerHTML += `
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+    <div class="carta" id="ultimaCartaE"><img src="./img/back_bria.png" class="reversocarta"></div>
+    `
+    document.getElementById("ultimaCarta").style.display = "none";
+    document.getElementById("ultimaCartaE").style.display = "none";
+}
+else if(RondaNuero%5===0){
     document.getElementById("pilaDeManoE").innerHTML=``;
     document.getElementById("pilaDeManoJ").innerHTML=``;
     for (let i=0; i<listCartasMano.length; i=i+1){
@@ -642,11 +838,89 @@ if(RondaNuero%5===0){
 else if(RondaNuero%3===0){
     document.getElementById("primerEvent").style.display = "block";
     document.getElementById("botondehindrE").style.border = "10px solid red";
+    document.getElementById("ultimaCarta").style.visibility = "hidden";
+    document.getElementById("ultimaCartaE").style.visibility = "hidden";
 }
 else if(RondaNuero%1===0){
    document.getElementById("ultimaCarta").style.visibility = "hidden";
    document.getElementById("ultimaCartaE").style.visibility = "hidden";
-}
+}});
+
+// funciones de botones robar de la mano
+let rbDLaManito1 = document.getElementById("robarDE1");
+rbDLaManito1.addEventListener("click",function(){
+    if(RondaNuero%15===0){
+        listCartasMano.push(robaAlAzarDME());
+        listCartasManoE.push(EMRobaDMano());
+        document.getElementById("tercerEvent").style.display = "none";
+        document.getElementById("vercarEnemigo").style.display = "none";
+        document.getElementById("movHINDR").style.display = "block";
+        console.log("cartas de mazo:",todasLasCartas);
+        console.log("tus cartas:",listCartasMano);
+        document.getElementById("ultimaCarta").style.visibility = "visible";
+        document.getElementById("ultimaCartaE").style.visibility = "visible";
+        document.getElementById("pilaDeManoE").style.border = "none";
+    }
+});
+let rbDLaManito2 = document.getElementById("robarDE2");
+rbDLaManito2.addEventListener("click",function(){
+    if(RondaNuero%15===0){
+        listCartasMano.push(robaAlAzarDME());
+        listCartasManoE.push(EMRobaDMano());
+        document.getElementById("tercerEvent").style.display = "none";
+        document.getElementById("vercarEnemigo").style.display = "none";
+        document.getElementById("movHINDR").style.display = "block";
+        console.log("cartas de mazo:",todasLasCartas);
+        console.log("tus cartas:",listCartasMano);
+        document.getElementById("ultimaCarta").style.visibility = "visible";
+        document.getElementById("ultimaCartaE").style.visibility = "visible";
+        document.getElementById("pilaDeManoE").style.border = "none";
+    }
+});
+let rbDLaManito3 = document.getElementById("robarDE3");
+rbDLaManito3.addEventListener("click",function(){
+    if(RondaNuero%15===0){
+        listCartasMano.push(robaAlAzarDME());
+        listCartasManoE.push(EMRobaDMano());
+        document.getElementById("tercerEvent").style.display = "none";
+        document.getElementById("vercarEnemigo").style.display = "none";
+        document.getElementById("movHINDR").style.display = "block";
+        console.log("cartas de mazo:",todasLasCartas);
+        console.log("tus cartas:",listCartasMano);
+        document.getElementById("ultimaCarta").style.visibility = "visible";
+        document.getElementById("ultimaCartaE").style.visibility = "visible";
+        document.getElementById("pilaDeManoE").style.border = "none";
+    }
+});
+let rbDLaManito4 = document.getElementById("robarDE4");
+rbDLaManito4.addEventListener("click",function(){
+    if(RondaNuero%15===0){
+        listCartasMano.push(robaAlAzarDME());
+        listCartasManoE.push(EMRobaDMano());
+        document.getElementById("tercerEvent").style.display = "none";
+        document.getElementById("vercarEnemigo").style.display = "none";
+        document.getElementById("movHINDR").style.display = "block";
+        console.log("cartas de mazo:",todasLasCartas);
+        console.log("tus cartas:",listCartasMano);
+        document.getElementById("ultimaCarta").style.visibility = "visible";
+        document.getElementById("ultimaCartaE").style.visibility = "visible";
+        document.getElementById("pilaDeManoE").style.border = "none";
+    }
+});
+let rbDLaManito5 = document.getElementById("robarDE5");
+rbDLaManito5.addEventListener("click",function(){
+    if(RondaNuero%15===0){
+        listCartasMano.push(robaAlAzarDME());
+        listCartasManoE.push(EMRobaDMano());
+        document.getElementById("tercerEvent").style.display = "none";
+        document.getElementById("vercarEnemigo").style.display = "none";
+        document.getElementById("movHINDR").style.display = "block";
+        console.log("cartas de mazo:",todasLasCartas);
+        console.log("tus cartas:",listCartasMano);
+        document.getElementById("ultimaCarta").style.visibility = "visible";
+        document.getElementById("ultimaCartaE").style.visibility = "visible";
+        document.getElementById("pilaDeManoE").style.border = "none";
+    }
 });
 
 let robarCartica = document.getElementById("robarcartica");
@@ -659,7 +933,29 @@ robarCartica.addEventListener("click", function () {
     document.getElementById("ultimaCartaE").style.visibility = "visible";
     console.log("(ha robado una carta) cartas enemigas:",listCartasManoE);
 
-    if(RondaNuero%5===0){
+    if(RondaNuero%15===0){
+        document.getElementById("pilaDeManoE").innerHTML=``;
+        document.getElementById("pilaDeManoJ").innerHTML=``;
+        let divisionj = document.getElementById("pilaDeManoJ");
+        divisionj.innerHTML += `
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta" id="ultimaCarta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        `
+        let divisione = document.getElementById("pilaDeManoE");
+        divisione.innerHTML += `
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta"><img src="./img/back_bria.png" class="reversocarta"></div>
+        <div class="carta" id="ultimaCartaE"><img src="./img/back_bria.png" class="reversocarta"></div>
+        `
+    }
+    else if(RondaNuero%5===0){
         document.getElementById("pilaDeManoE").innerHTML=``;
         document.getElementById("pilaDeManoJ").innerHTML=``;
         for (let i=0; i<listCartasMano.length; i=i+1){
