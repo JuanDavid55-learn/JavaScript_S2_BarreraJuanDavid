@@ -14,6 +14,9 @@ entrarJugar.addEventListener("click",function (){
 let salirPartida = document.getElementById("salirDeParida");
 salirPartida.addEventListener("click",function (){
     document.getElementById("tableroJuego").style.display= "none";
+    document.getElementById("jugar").innerHTML=``;
+    let division = document.getElementById("jugar");
+    division.innerHTML += `Segir jugando`
 })
 let repartirYEmpezar = document.getElementById("botondeMazo");
 repartirYEmpezar.addEventListener("click", function () {
@@ -1055,6 +1058,29 @@ punto1.addEventListener("click",function(){
         division2.innerHTML += `
         <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
         `
+        
+        document.getElementById("pilaDeManoE").innerHTML=``;
+        document.getElementById("pilaDeManoJ").innerHTML=``;
+        for (let i=0; i<PARAEVALUARLAMANODELJUGADOR.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELJUGADOR[i]["code"]);
+            let division = document.getElementById("pilaDeManoJ");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        for (let i=0; i<PARAEVALUARLAMANODELENEMIGO.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELENEMIGO[i]["code"]);
+            let division = document.getElementById("pilaDeManoE");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        if(valuaciondepuntos()<valuaciondepuntosE()){
+            document.getElementById("derrota").style.display = "block";
+        }
+        else if(valuaciondepuntosE()<valuaciondepuntos()){
+            document.getElementById("victoria").style.display = "block";
+        }  
     }
 });
 let punto2 = document.getElementById("puntua2");
@@ -1079,6 +1105,29 @@ punto2.addEventListener("click",function(){
         division2.innerHTML += `
         <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
         `
+                
+        document.getElementById("pilaDeManoE").innerHTML=``;
+        document.getElementById("pilaDeManoJ").innerHTML=``;
+        for (let i=0; i<PARAEVALUARLAMANODELJUGADOR.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELJUGADOR[i]["code"]);
+            let division = document.getElementById("pilaDeManoJ");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        for (let i=0; i<PARAEVALUARLAMANODELENEMIGO.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELENEMIGO[i]["code"]);
+            let division = document.getElementById("pilaDeManoE");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        if(valuaciondepuntos()<valuaciondepuntosE()){
+            document.getElementById("derrota").style.display = "block";
+        }
+        else if(valuaciondepuntosE()<valuaciondepuntos()){
+            document.getElementById("victoria").style.display = "block";
+        } 
     }
 });
 let punto3 = document.getElementById("puntua3");
@@ -1103,6 +1152,29 @@ punto3.addEventListener("click",function(){
         division2.innerHTML += `
         <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
         `
+                
+        document.getElementById("pilaDeManoE").innerHTML=``;
+        document.getElementById("pilaDeManoJ").innerHTML=``;
+        for (let i=0; i<PARAEVALUARLAMANODELJUGADOR.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELJUGADOR[i]["code"]);
+            let division = document.getElementById("pilaDeManoJ");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        for (let i=0; i<PARAEVALUARLAMANODELENEMIGO.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELENEMIGO[i]["code"]);
+            let division = document.getElementById("pilaDeManoE");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        } 
+        if(valuaciondepuntos()<valuaciondepuntosE()){
+            document.getElementById("derrota").style.display = "block";
+        }
+        else if(valuaciondepuntosE()<valuaciondepuntos()){
+            document.getElementById("victoria").style.display = "block";
+        } 
     }
 });
 let punto4 = document.getElementById("puntua4");
@@ -1127,6 +1199,29 @@ punto4.addEventListener("click",function(){
         division2.innerHTML += `
         <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
         `
+                
+        document.getElementById("pilaDeManoE").innerHTML=``;
+        document.getElementById("pilaDeManoJ").innerHTML=``;
+        for (let i=0; i<PARAEVALUARLAMANODELJUGADOR.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELJUGADOR[i]["code"]);
+            let division = document.getElementById("pilaDeManoJ");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        for (let i=0; i<PARAEVALUARLAMANODELENEMIGO.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELENEMIGO[i]["code"]);
+            let division = document.getElementById("pilaDeManoE");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        } 
+        if(valuaciondepuntos()<valuaciondepuntosE()){
+            document.getElementById("derrota").style.display = "block";
+        }
+        else if(valuaciondepuntosE()<valuaciondepuntos()){
+            document.getElementById("victoria").style.display = "block";
+        } 
     }
 });
 let punto5 = document.getElementById("puntua5");
@@ -1151,6 +1246,29 @@ punto5.addEventListener("click",function(){
         division2.innerHTML += `
         <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
         `
+                
+        document.getElementById("pilaDeManoE").innerHTML=``;
+        document.getElementById("pilaDeManoJ").innerHTML=``;
+        for (let i=0; i<PARAEVALUARLAMANODELJUGADOR.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELJUGADOR[i]["code"]);
+            let division = document.getElementById("pilaDeManoJ");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        for (let i=0; i<PARAEVALUARLAMANODELENEMIGO.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELENEMIGO[i]["code"]);
+            let division = document.getElementById("pilaDeManoE");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        } 
+        if(valuaciondepuntos()<valuaciondepuntosE()){
+            document.getElementById("derrota").style.display = "block";
+        }
+        else if(valuaciondepuntosE()<valuaciondepuntos()){
+            document.getElementById("victoria").style.display = "block";
+        } 
     } 
 });
 let punto6 = document.getElementById("puntua6");
@@ -1175,6 +1293,29 @@ punto6.addEventListener("click",function(){
         division2.innerHTML += `
         <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
         `
+                
+        document.getElementById("pilaDeManoE").innerHTML=``;
+        document.getElementById("pilaDeManoJ").innerHTML=``;
+        for (let i=0; i<PARAEVALUARLAMANODELJUGADOR.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELJUGADOR[i]["code"]);
+            let division = document.getElementById("pilaDeManoJ");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        }
+        for (let i=0; i<PARAEVALUARLAMANODELENEMIGO.length; i=i+1){
+            const idCarta =(PARAEVALUARLAMANODELENEMIGO[i]["code"]);
+            let division = document.getElementById("pilaDeManoE");
+            division.innerHTML += `
+            <div class="carta"><img src="https://deckofcardsapi.com/static/img/${idCarta}.png" class="reversocarta"></div>
+            `
+        } 
+        if(valuaciondepuntos()<valuaciondepuntosE()){
+            document.getElementById("derrota").style.display = "block";
+        }
+        else if(valuaciondepuntosE()<valuaciondepuntos()){
+            document.getElementById("victoria").style.display = "block";
+        } 
     }
 });
 

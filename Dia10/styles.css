@@ -180,9 +180,13 @@ button{
     justify-content: center;
 }
 #cartucasHindr{
-    display: flex;
+    display: flex ;
+    width: 1920px;
+    height: 1080px;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 #cartucasAElegir{
     display: flex;
@@ -241,4 +245,16 @@ button{
 .imgEvents{
     height: 14rem;
     border-radius: 2rem;
+}
+#victoria{
+    display: none;
+    position: absolute;
+    top: 5rem;
+    left: 42rem;
+}
+#derrota{
+    display: none;
+    position: absolute;
+    top: 5rem;
+    left: 40rem;
 }
