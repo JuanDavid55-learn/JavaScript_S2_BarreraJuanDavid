@@ -19,7 +19,7 @@
         <br>
         <h3>Como se juega</h3>
         <br>
-        <h4>Cada jugador debe inicir con 6 cartas y manterner ese limite en su mano, por ronda cada uno movera una carta a la pila HINDR y robara, cada cierto numero de rondas se realizaran los EVENTS con fines de sabotaje. la ultima jugada es en la ronda 30 y culmina el juego. Se evaluaran los puntajes obtenidos en un cuarteto de cartas.</h4>
+        <h4>Cada jugador debe inicir con 6 cartas y manterner ese limite en su mano, por ronda cada uno movera una carta a la pila HINDR y robara, cada cierto numero de rondas se realizaran los EVENTS con fines de sabotaje. la ultima jugada es en la ronda 28 y culmina el juego. Se evaluaran los puntajes obtenidos en un cuarteto de cartas.</h4>
         <br>
         <h3>Events</h3>
         <br>
@@ -37,8 +37,6 @@
         <br>
         <h4>si la puntuacion del cuarteto de cartas de cada jugador resulta en empate se sumara el puntaje de las cartas residuales de cada uno.</h4>
         <br>
-        <h4>Cuando tengas el cuarteto de azces en la mano, ganas.</h4>
-        <br>
         <h4>Si bajo las condiciones establecidas no hay un desempate, nadie gana.</h4>
         <br>
         <br>
@@ -55,18 +53,18 @@
         <h3>PUNTAJES</h3>
         <h4>- Las cartas comunes valen igual a su numero</h4>
         <br>
-        <h4>- Las cartas de la corona: principe=10, reina=11, rey=12</h4>
+        <h4>- Las cartas de la corona: principe=11, reina=12, rey=13</h4>
         <br>
-        <h4>- Cada az vale 41 puntos</h4>
+        <h4>- Cada az vale 45 puntos</h4>
         <br>
         <br>
         <button id="salirReglas">Salir</button>
     </div>
     <div id="tableroJuego">
         <div id="datosPartida">
-            <p id="punE">PUNTOS: </p>
+            <div id="puntosE"><p id="punE">PUNTOS: </p></div>
             <div id="rondas"><p>RONDA:</p></div> 
-            <p id="punJ">PUNTOS: </p>
+            <div id="tusPuntos"><p id="punJ">PUNTOS: </p></div>
         </div>
         <div></div>
         <div id="ladoEnemigo">
@@ -148,6 +146,21 @@
             <button class="robarDE" id="robarDE3">ROBAR</button>
             <button class="robarDE" id="robarDE4">ROBAR</button>
             <button class="robarDE" id="robarDE5">ROBAR</button>
+        </div>
+    </div>
+
+    <div id="evluarMiMano" class="visualizar">
+        <h2>Elige tus cartas</h2>
+        <div id="cartucasAElegir">
+            
+        </div>
+        <div id="botonesParaPuntuar">
+            <button class="puntua" id="puntua1">ELIGE</button>
+            <button class="puntua" id="puntua2">ELIGE</button>
+            <button class="puntua" id="puntua3">ELIGE</button>
+            <button class="puntua" id="puntua4">ELIGE</button>
+            <button class="puntua" id="puntua5">ELIGE</button>
+            <button class="puntua" id="puntua6">ELIGE</button>
         </div>
     </div>
     <div id="verCartasHindr" class="visualizar">

@@ -77,7 +77,7 @@ button{
     left: 4rem;
     font-size: 2rem;
 }
-#punE{
+#puntosE{
     position: absolute;
     top: 18rem;
 }
@@ -85,7 +85,7 @@ button{
     position: absolute;
     top: 28rem;
 }
-#punJ{
+#tusPuntos{
     position: absolute;
     top: 39rem;
 }
@@ -184,6 +184,11 @@ button{
     flex-direction: row;
     justify-content: center;
 }
+#cartucasAElegir{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 .dehindr{
     width: 10rem;
     height: 5rem;
@@ -193,6 +198,14 @@ button{
     border-radius: 10px;
 }
 .robarDE{
+    width: 10rem;
+    height: 5rem;
+    font-size: 2rem;
+    margin: 2rem;
+    background-color: #ddd;
+    border-radius: 10px;
+}
+.puntua{
     width: 10rem;
     height: 5rem;
     font-size: 2rem;

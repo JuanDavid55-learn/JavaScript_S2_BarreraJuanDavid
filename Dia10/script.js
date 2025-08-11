@@ -103,6 +103,7 @@ robarDelHindr.addEventListener("click",function(){
         document.getElementById("movHINDR").style.display = "block";
         console.log("cartas de mazo:",todasLasCartas);
         console.log("tus cartas:",listCartasMano);
+        console.log("el enemigo tiene",listCartasManoE);
         document.getElementById("ultimaCarta").style.visibility = "visible";
         document.getElementById("ultimaCartaE").style.visibility = "visible";
 
@@ -136,7 +137,7 @@ verManoE.addEventListener("click",function (){
 let todasLasCartas=[];
 for(i=2;i<10;i=i+1){
     Htemporal={
-        "value": `${i}`,
+        "value": i,
         "suit": `HEARTS`,
         "code": `${i}H`
     }
@@ -145,7 +146,7 @@ for(i=2;i<10;i=i+1){
 
 for(i=2;i<10;i=i+1){
     Stemporal={
-        "value": `${i}`,
+        "value": i,
         "suit": `SPADES`,
         "code": `${i}S`
     }
@@ -154,7 +155,7 @@ for(i=2;i<10;i=i+1){
 
 for(i=2;i<10;i=i+1){
     Dtemporal={
-        "value": `${i}`,
+        "value": i,
         "suit": `DIAMONDS`,
         "code": `${i}D`
     }
@@ -163,11 +164,45 @@ for(i=2;i<10;i=i+1){
 
 for(i=2;i<10;i=i+1){
     Ctemporal={
-        "value": `${i}`,
+        "value": i,
         "suit": `CLUBS`,
         "code": `${i}C`
     }
     todasLasCartas.push(Ctemporal);
+}
+for(i=0;i<4;i=i+1){
+    if(i===0){
+        Ctemporal={
+            "value": 10,
+            "suit": `CLUBS`,
+            "code": `0H`
+        }
+        todasLasCartas.push(Ctemporal);
+    }
+    else if(i===1){
+        Ctemporal={
+            "value": 10,
+            "suit": `CLUBS`,
+            "code": `0S`
+        }
+        todasLasCartas.push(Ctemporal);
+    }
+    else if(i===2){
+        Ctemporal={
+            "value": 10,
+            "suit": `CLUBS`,
+            "code": `0D`
+        }
+        todasLasCartas.push(Ctemporal);
+    }
+    else if(i===3){
+        Ctemporal={
+            "value": 10,
+            "suit": `CLUBS`,
+            "code": `0C`
+        }
+        todasLasCartas.push(Ctemporal);
+    }
 }
 
 for(i=0;i<4;i=i+1){
@@ -177,7 +212,7 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "value": `JACK`,
+                    "value": 11,
                     "suit": `HEARTS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -186,7 +221,7 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Jtemporal={
-                    "value": `QUEEN`,
+                    "value": 12,
                     "suit": `HEARTS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -195,7 +230,7 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Jtemporal={
-                    "value": `KING`,
+                    "value": 13,
                     "suit": `HEARTS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -209,7 +244,7 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "value": `JACK`,
+                    "value": 11,
                     "suit": `SPADES`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -218,7 +253,7 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Qtemporal={
-                    "value": `QUEEN`,
+                    "value": 12,
                     "suit": `SPADES`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -227,7 +262,7 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Ktemporal={
-                    "value": `KING`,
+                    "value": 13,
                     "suit": `SPADES`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -241,7 +276,7 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "value": `JACK`,
+                    "value": 11,
                     "suit": `DIAMONDS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -250,7 +285,7 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Qtemporal={
-                    "value": `QUEEN`,
+                    "value": 12,
                     "suit": `DIAMONDS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -259,7 +294,7 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Ktemporal={
-                    "value": `KING`,
+                    "value": 13,
                     "suit": `DIAMONDS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -273,7 +308,7 @@ for(i=0;i<4;i=i+1){
             if(j==0){
                 const tipe2 = "J";
                 Jtemporal={
-                    "value": `JACK`,
+                    "value": 11,
                     "suit": `CLUBS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -282,7 +317,7 @@ for(i=0;i<4;i=i+1){
             else if(j==1){
                 const tipe2 = "Q";
                 Qtemporal={
-                    "value": `QUEEN`,
+                    "value": 12,
                     "suit": `CLUBS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -291,7 +326,7 @@ for(i=0;i<4;i=i+1){
             else if(j==2){
                 const tipe2 = "K";
                 Ktemporal={
-                    "value": `KING`,
+                    "value": 13,
                     "suit": `CLUBS`,
                     "code": `${tipe2}${tipe}`
                 }
@@ -304,7 +339,7 @@ for(i=0;i<4;i=i+1){
 for(i=0;i<4;i=i+1){
     if(i==0){
         AStemporal={
-            "value": `AS`,
+            "value": 45,
             "suit": `HEARTS`,
             "code": `AH`
         }
@@ -312,7 +347,7 @@ for(i=0;i<4;i=i+1){
     }
     else if(i==1){
         AStemporal={
-            "value": `AS`,
+            "value": 45,
             "suit": `SPADES`,
             "code": `AS`
         }
@@ -320,7 +355,7 @@ for(i=0;i<4;i=i+1){
     }
     else if(i==2){
         AStemporal={
-            "value": `AS`,
+            "value": 45,
             "suit": `DIAMONDS`,
             "code": `AD`
         }
@@ -328,7 +363,7 @@ for(i=0;i<4;i=i+1){
     }
     else if(i==3){
         AStemporal={
-            "value": `AS`,
+            "value": 45,
             "suit": `CLUBS`,
             "code": `AC`
         }
@@ -932,8 +967,26 @@ robarCartica.addEventListener("click", function () {
     listCartasManoE.push(cartaAlAzar());
     document.getElementById("ultimaCartaE").style.visibility = "visible";
     console.log("(ha robado una carta) cartas enemigas:",listCartasManoE);
+    
+    if(RondaNuero>=28){
+        console.log("el juego ha terminado")
+        document.getElementById("movHINDR").style.display = "none";
+        document.getElementById("robarcartica").style.display = "none";
+        numronda =document.getElementById("rondas").innerHTML =`<p>RONDA:</p>`
+        numronda =document.getElementById("rondas").innerHTML +=`28`
 
-    if(RondaNuero%15===0){
+        document.getElementById("evluarMiMano").style.display = "block";
+        for (let i=0; i<listCartasMano.length; i=i+1){
+            const idCarta =(listCartasMano[i]["code"]);
+            let division = document.getElementById("cartucasAElegir");
+            division.innerHTML += `
+            <div id="card${i+1}">
+            <img src="https://deckofcardsapi.com/static/img/${idCarta}.png" alt="">
+            </div>
+            `
+        }
+    }
+    else if(RondaNuero%15===0){
         document.getElementById("pilaDeManoE").innerHTML=``;
         document.getElementById("pilaDeManoJ").innerHTML=``;
         let divisionj = document.getElementById("pilaDeManoJ");
@@ -974,3 +1027,171 @@ robarCartica.addEventListener("click", function () {
         }
     }
 });
+
+// botoncitos de valuacion
+let PARAEVALUARLAMANODELJUGADOR =[];
+let PARAEVALUARLAMANODELENEMIGO =[];
+numSelecciones=0
+
+let punto1 = document.getElementById("puntua1");
+punto1.addEventListener("click",function(){
+    PARAEVALUARLAMANODELJUGADOR.push(listCartasMano[0]);
+    document.getElementById("puntua1").style.visibility = "hidden";
+    numSelecciones=numSelecciones+1
+    if(numSelecciones===4){
+        for(let i=0;i<4;i=i+1){
+            PARAEVALUARLAMANODELENEMIGO.push(movimientoAlAzardelE());
+        }
+        console.log("los puntos enemigos",PARAEVALUARLAMANODELENEMIGO);
+        console.log("tus puntos",PARAEVALUARLAMANODELJUGADOR);
+        document.getElementById("evluarMiMano").style.display = "none";
+        document.getElementById("tusPuntos").innerHTML=``;
+        document.getElementById("puntosE").innerHTML=``;
+        let division1 = document.getElementById("tusPuntos");
+        division1.innerHTML += `
+        <p id="punJ">PUNTOS: </p> ${valuaciondepuntos()}
+        `
+        let division2 = document.getElementById("puntosE");
+        division2.innerHTML += `
+        <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
+        `
+    }
+});
+let punto2 = document.getElementById("puntua2");
+punto2.addEventListener("click",function(){
+    PARAEVALUARLAMANODELJUGADOR.push(listCartasMano[1]);
+    document.getElementById("puntua2").style.visibility = "hidden";
+    numSelecciones=numSelecciones+1 
+    if(numSelecciones===4){
+        for(let i=0;i<4;i=i+1){
+            PARAEVALUARLAMANODELENEMIGO.push(movimientoAlAzardelE());
+        }
+        console.log("los puntos enemigos",PARAEVALUARLAMANODELENEMIGO);
+        console.log("tus puntos",PARAEVALUARLAMANODELJUGADOR);
+        document.getElementById("evluarMiMano").style.display = "none";
+        document.getElementById("tusPuntos").innerHTML=``;
+        document.getElementById("puntosE").innerHTML=``;
+        let division1 = document.getElementById("tusPuntos");
+        division1.innerHTML += `
+        <p id="punJ">PUNTOS: </p> ${valuaciondepuntos()}
+        `
+        let division2 = document.getElementById("puntosE");
+        division2.innerHTML += `
+        <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
+        `
+    }
+});
+let punto3 = document.getElementById("puntua3");
+punto3.addEventListener("click",function(){
+    PARAEVALUARLAMANODELJUGADOR.push(listCartasMano[2]);
+    document.getElementById("puntua3").style.visibility = "hidden";
+    numSelecciones=numSelecciones+1
+    if(numSelecciones===4){
+        for(let i=0;i<4;i=i+1){
+            PARAEVALUARLAMANODELENEMIGO.push(movimientoAlAzardelE());
+        }
+        console.log("los puntos enemigos",PARAEVALUARLAMANODELENEMIGO);
+        console.log("tus puntos",PARAEVALUARLAMANODELJUGADOR);
+        document.getElementById("evluarMiMano").style.display = "none";
+        document.getElementById("tusPuntos").innerHTML=``;
+        document.getElementById("puntosE").innerHTML=``;
+        let division1 = document.getElementById("tusPuntos");
+        division1.innerHTML += `
+        <p id="punJ">PUNTOS: </p> ${valuaciondepuntos()}
+        `
+        let division2 = document.getElementById("puntosE");
+        division2.innerHTML += `
+        <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
+        `
+    }
+});
+let punto4 = document.getElementById("puntua4");
+punto4.addEventListener("click",function(){
+    PARAEVALUARLAMANODELJUGADOR.push(listCartasMano[3]);
+    document.getElementById("puntua4").style.visibility = "hidden";
+    numSelecciones=numSelecciones+1
+    if(numSelecciones===4){
+        for(let i=0;i<4;i=i+1){
+            PARAEVALUARLAMANODELENEMIGO.push(movimientoAlAzardelE());
+        }
+        console.log("los puntos enemigos",PARAEVALUARLAMANODELENEMIGO);
+        console.log("tus puntos",PARAEVALUARLAMANODELJUGADOR);
+        document.getElementById("evluarMiMano").style.display = "none";
+        document.getElementById("tusPuntos").innerHTML=``;
+        document.getElementById("puntosE").innerHTML=``;
+        let division1 = document.getElementById("tusPuntos");
+        division1.innerHTML += `
+        <p id="punJ">PUNTOS: </p> ${valuaciondepuntos()}
+        `
+        let division2 = document.getElementById("puntosE");
+        division2.innerHTML += `
+        <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
+        `
+    }
+});
+let punto5 = document.getElementById("puntua5");
+punto5.addEventListener("click",function(){
+    PARAEVALUARLAMANODELJUGADOR.push(listCartasMano[4]);
+    document.getElementById("puntua5").style.visibility = "hidden";
+    numSelecciones=numSelecciones+1 
+    if(numSelecciones===4){
+        for(let i=0;i<4;i=i+1){
+            PARAEVALUARLAMANODELENEMIGO.push(movimientoAlAzardelE());
+        }
+        console.log("los puntos enemigos",PARAEVALUARLAMANODELENEMIGO);
+        console.log("tus puntos",PARAEVALUARLAMANODELJUGADOR);
+        document.getElementById("evluarMiMano").style.display = "none";
+        document.getElementById("tusPuntos").innerHTML=``;
+        document.getElementById("puntosE").innerHTML=``;
+        let division1 = document.getElementById("tusPuntos");
+        division1.innerHTML += `
+        <p id="punJ">PUNTOS: </p> ${valuaciondepuntos()}
+        `
+        let division2 = document.getElementById("puntosE");
+        division2.innerHTML += `
+        <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
+        `
+    } 
+});
+let punto6 = document.getElementById("puntua6");
+punto6.addEventListener("click",function(){
+    PARAEVALUARLAMANODELJUGADOR.push(listCartasMano[5]);
+    document.getElementById("puntua6").style.visibility = "hidden";
+    numSelecciones=numSelecciones+1
+    if(numSelecciones===4){
+        for(let i=0;i<4;i=i+1){
+            PARAEVALUARLAMANODELENEMIGO.push(movimientoAlAzardelE());
+        }
+        console.log("los puntos enemigos",PARAEVALUARLAMANODELENEMIGO);
+        console.log("tus puntos",PARAEVALUARLAMANODELJUGADOR);
+        document.getElementById("evluarMiMano").style.display = "none";
+        document.getElementById("tusPuntos").innerHTML=``;
+        document.getElementById("puntosE").innerHTML=``;
+        let division1 = document.getElementById("tusPuntos");
+        division1.innerHTML += `
+        <p id="punJ">PUNTOS: </p> ${valuaciondepuntos()}
+        `
+        let division2 = document.getElementById("puntosE");
+        division2.innerHTML += `
+        <p id="punE">PUNTOS: </p> ${valuaciondepuntosE()}
+        `
+    }
+});
+
+// alfin la valuacion de los puntos
+function valuaciondepuntos(){
+    const putosnum1 =(PARAEVALUARLAMANODELJUGADOR[0]["value"]);
+    const putosnum2 =(PARAEVALUARLAMANODELJUGADOR[1]["value"]); 
+    const putosnum3 =(PARAEVALUARLAMANODELJUGADOR[2]["value"]); 
+    const putosnum4 =(PARAEVALUARLAMANODELJUGADOR[3]["value"]);
+    const resultado =(putosnum1+putosnum2)+(putosnum3+putosnum4);
+    return resultado;
+}
+function valuaciondepuntosE(){
+    const putosnum1 =(PARAEVALUARLAMANODELENEMIGO[0]["value"]);
+    const putosnum2 =(PARAEVALUARLAMANODELENEMIGO[1]["value"]); 
+    const putosnum3 =(PARAEVALUARLAMANODELENEMIGO[2]["value"]); 
+    const putosnum4 =(PARAEVALUARLAMANODELENEMIGO[3]["value"]);
+    const resultado =(putosnum1+putosnum2)+(putosnum3+putosnum4);
+    return resultado;
+}
